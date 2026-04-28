@@ -6,9 +6,7 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [react()],
   root: '.',
-  build: {
-    outDir: '../dist/website-1',
-  },
+
   server: {
     port: 3001,
   },
