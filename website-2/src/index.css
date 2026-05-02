@@ -1,24 +1,87 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 
+/* ─── Design Tokens ─── */
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --color-primary:   #0054B1;
+  --color-secondary: #4B9FF3;
+  --color-white:     #FFFFFF;
+  --color-black:     #000000;
+  --color-text-muted: #4A5568;
+  --color-text-node:  #1A202C;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #0f172a;
-
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
+/* ─── Reset ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
+  padding: 0;
+}
+
+html, body, #root {
+  width: 100%;
   min-height: 100vh;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* ─── Animation: SVG Line Draw ─── */
+@keyframes draw {
+  from {
+    stroke-dashoffset: 500;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ─── Animation: Node Pulse (opacity + glow) ─── */
+@keyframes nodePulse {
+  0%, 100% {
+    opacity: 0.7;
+    box-shadow: 0 0 0px rgba(75, 159, 243, 0.2);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 14px rgba(75, 159, 243, 0.5);
+  }
+}
+
+/* ─── Animation: Center Node Float ─── */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-6px); }
+}
+
+/* ─── Animation: Dot Travel (generic fade in/out for moving dots) ─── */
+@keyframes dotTravel {
+  0%   { opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* ─── Utility Classes ─── */
+.animate-draw {
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: draw 1.8s ease forwards;
+}
+
+.animate-node-pulse {
+  animation: nodePulse 2.5s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
 }
