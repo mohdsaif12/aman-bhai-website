@@ -9,7 +9,6 @@ const STATS = [
 ];
 
 // Premium Cinematic Text Reveal
-// Each word is wrapped in an overflow-hidden mask, and the text slides up from the bottom edge
 const WordReveal = ({ words, color, baseDelay = 0 }) =>
   words.map((word, i) => (
     <span
@@ -17,17 +16,17 @@ const WordReveal = ({ words, color, baseDelay = 0 }) =>
       style={{
         display: 'inline-flex',
         overflow: 'hidden',
-        paddingBottom: '4px', // Prevent descender clipping (g, y, p)
-        marginRight: i < words.length - 1 ? '12px' : '0', // Explicit space
+        paddingBottom: '4px',
+        marginRight: i < words.length - 1 ? '12px' : '0',
       }}
     >
       <motion.span
         initial={{ y: '110%' }}
         animate={{ y: '0%' }}
         transition={{
-          duration: 0.7,
-          ease: [0.16, 1, 0.3, 1], // Custom cinematic spring-like ease
-          delay: baseDelay + i * 0.05,
+          duration: 0.75,
+          ease: [0.16, 1, 0.3, 1],
+          delay: baseDelay + i * 0.055,
         }}
         style={{ color: color || 'inherit', display: 'inline-block' }}
       >
@@ -36,12 +35,25 @@ const WordReveal = ({ words, color, baseDelay = 0 }) =>
     </span>
   ));
 
+const STEPS = [
+  'Initial Enquiry',
+  'Discovery Call',
+  'Structuring & Advisory',
+  'Execution',
+  'Ongoing Support',
+];
+
 const HeroSection = () => {
   return (
     <section className="w-full bg-white overflow-hidden">
       <div
-        className="w-full max-w-[1600px] mx-auto grid grid-cols-2 items-center"
         style={{
+          width: '100%',
+          maxWidth: '1600px',
+          margin: '0 auto',
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          alignItems: 'center',
           minHeight: 'calc(100vh - 90px)',
           padding: '0 60px',
           gap: '40px',
@@ -49,7 +61,7 @@ const HeroSection = () => {
       >
 
         {/* ── LEFT: Text Content ── */}
-        <div className="flex flex-col justify-center py-16">
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: '64px', paddingBottom: '64px' }}>
 
           {/* Eyebrow */}
           <motion.p
@@ -65,10 +77,10 @@ const HeroSection = () => {
               marginBottom: '20px',
             }}
           >
-            Your Partner in the UAE
+            Incorvia Corporate Advisory — Dubai, UAE
           </motion.p>
 
-          {/* Headline — natural text flow with word-by-word reveal */}
+          {/* Headline */}
           <h1
             style={{
               fontSize: 'clamp(2rem, 3.5vw, 3.2rem)',
@@ -78,19 +90,9 @@ const HeroSection = () => {
               color: '#000000',
             }}
           >
-            {/* Line 1: black words */}
-            <WordReveal
-              words={['Build', 'Your', 'Business', 'in', 'the', 'UAE.']}
-              color="#000000"
-              baseDelay={0.05}
-            />
+            <WordReveal words={['Your', 'Business.']} color="#000000" baseDelay={0.05} />
             <br />
-            {/* Line 2: blue words */}
-            <WordReveal
-              words={['Without', 'Complexity.']}
-              color="#0054B1"
-              baseDelay={0.5}
-            />
+            <WordReveal words={['Structured', 'Properly.']} color="#0054B1" baseDelay={0.35} />
           </h1>
 
           {/* Subtext */}
@@ -102,23 +104,41 @@ const HeroSection = () => {
               fontSize: '16px',
               color: '#4A5568',
               lineHeight: 1.7,
-              marginBottom: '36px',
-              maxWidth: '400px',
+              marginBottom: '28px',
+              maxWidth: '440px',
             }}
           >
-            From company formation to compliance and beyond, we handle the
-            details so you can focus on growth.
+            Incorvia is a strategic advisory firm that helps founders and investors
+            design the right UAE business structure — before a single document is filed.
           </motion.p>
+
+          {/* Quote block */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.85 }}
+            style={{
+              borderLeft: '3px solid #0054B1',
+              paddingLeft: '16px',
+              marginBottom: '32px',
+              maxWidth: '420px',
+            }}
+          >
+            <p style={{ fontSize: '13px', color: '#6B7280', lineHeight: 1.75, fontStyle: 'italic' }}>
+              "We advise first. We structure second. We execute third. That sequence is not incidental — it is the entire point."
+            </p>
+          </motion.div>
 
           {/* Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.9 }}
-            style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap', marginBottom: '48px' }}
+            style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap', marginBottom: '40px' }}
           >
             <motion.button
               whileHover={{ scale: 1.03, boxShadow: '0 6px 24px rgba(0,84,177,0.3)' }}
+              whileTap={{ scale: 0.97 }}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -133,12 +153,13 @@ const HeroSection = () => {
                 cursor: 'pointer',
               }}
             >
-              Book a Consultation
+              Book a Discovery Call
               <ArrowRight size={16} />
             </motion.button>
 
             <motion.button
               whileHover={{ scale: 1.03, background: 'rgba(0,84,177,0.04)' }}
+              whileTap={{ scale: 0.97 }}
               style={{
                 background: 'transparent',
                 color: '#0054B1',
@@ -150,8 +171,23 @@ const HeroSection = () => {
                 cursor: 'pointer',
               }}
             >
-              Explore Services
+              How It Works
             </motion.button>
+          </motion.div>
+
+          {/* Process teaser */}
+          <motion.div
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 1.0 }}
+            style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap', marginBottom: '28px' }}
+          >
+            {STEPS.map((step, i) => (
+              <span key={step} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <span style={{ fontSize: '12px', color: '#6B7280', fontWeight: 500 }}>{step}</span>
+                {i < STEPS.length - 1 && <span style={{ color: '#4B9FF3', fontSize: '12px' }}>→</span>}
+              </span>
+            ))}
           </motion.div>
 
           {/* Trust Stats */}
@@ -163,60 +199,38 @@ const HeroSection = () => {
               display: 'flex',
               alignItems: 'center',
               gap: '24px',
-              flexWrap: 'nowrap',
-              paddingTop: '28px',
+              paddingTop: '24px',
               borderTop: '1px solid #E8ECF0',
             }}
           >
             {STATS.map(({ icon: Icon, number, label }) => (
               <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                <div
-                  style={{
-                    width: '40px',
-                    height: '40px',
-                    borderRadius: '50%',
-                    background: 'rgba(0,84,177,0.08)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    flexShrink: 0,
-                  }}
-                >
+                <div style={{
+                  width: '40px', height: '40px', borderRadius: '50%',
+                  background: 'rgba(0,84,177,0.08)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
+                }}>
                   <Icon size={18} color="#0054B1" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '18px', fontWeight: 900, color: '#000', lineHeight: 1 }}>
-                    {number}
-                  </div>
-                  <div style={{ fontSize: '12px', color: '#6B7280', marginTop: '3px' }}>
-                    {label}
-                  </div>
+                  <div style={{ fontSize: '18px', fontWeight: 900, color: '#000', lineHeight: 1 }}>{number}</div>
+                  <div style={{ fontSize: '12px', color: '#6B7280', marginTop: '3px' }}>{label}</div>
                 </div>
               </div>
             ))}
           </motion.div>
         </div>
 
-        {/* ── RIGHT: Network Visual ── */}
-        <div
-          style={{
-            position: 'relative',
-            width: '100%',
-            height: '100%',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
-          }}
-        >
-          <div
-            style={{
-              width: '650px',
-              height: '650px',
-              position: 'relative',
-              flexShrink: 0,
-              transform: 'translateX(60px)', // Subtle push in the wider layout
-            }}
-          >
+        {/* ── RIGHT: Network Visual — constrained so it doesn't overflow ── */}
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          overflow: 'hidden',
+          height: '100%',
+          minHeight: '500px',
+        }}>
+          <div style={{ width: '100%', maxWidth: '600px', aspectRatio: '1 / 1' }}>
             <NetworkVisual />
           </div>
         </div>

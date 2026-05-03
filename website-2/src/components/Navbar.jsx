@@ -3,14 +3,20 @@ import { ChevronDown, Menu, X } from 'lucide-react';
 import Logo from './Logo';
 
 const navLinks = [
-  { label: 'Services', hasDropdown: true },
-  { label: 'About Us', hasDropdown: false },
-  { label: 'Industries', hasDropdown: false },
-  { label: 'Resources', hasDropdown: true },
-  { label: 'Contact', hasDropdown: false },
+  { label: 'Services',   href: '#services',    hasDropdown: true  },
+  { label: 'About Us',  href: '#about',        hasDropdown: false },
+  { label: 'How It Works', href: '#how-it-works', hasDropdown: false },
+  { label: 'Testimonials', href: '#testimonials', hasDropdown: false },
+  { label: 'Contact',   href: '#contact',      hasDropdown: false },
 ];
 
-const Navbar = () => {
+const scrollTo = (e, href) => {
+  e.preventDefault();
+  const el = document.querySelector(href);
+  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+};
+
+const Navbar = ({ onBookClick }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
@@ -27,17 +33,20 @@ const Navbar = () => {
       >
         {/* Col 1 — Logo */}
         <div>
-          <Logo />
+          <a href="#" onClick={e => scrollTo(e, '#home')} style={{ textDecoration: 'none' }}>
+            <Logo />
+          </a>
         </div>
 
-        {/* Col 2 — Nav Links (true center) */}
+        {/* Col 2 — Nav Links */}
         <nav className="hidden lg:flex items-center gap-10">
           {navLinks.map((link) => (
             <a
               key={link.label}
-              href="#"
+              href={link.href}
+              onClick={e => scrollTo(e, link.href)}
               className="flex items-center gap-1 font-medium text-gray-700 hover:text-[#0054B1] transition-colors duration-200 whitespace-nowrap"
-              style={{ fontSize: '15px' }}
+              style={{ fontSize: '15px', textDecoration: 'none' }}
             >
               {link.label}
               {link.hasDropdown && (
@@ -47,15 +56,12 @@ const Navbar = () => {
           ))}
         </nav>
 
-        {/* Col 3 — CTA Button (right-aligned) */}
+        {/* Col 3 — CTA */}
         <div className="hidden lg:flex items-center justify-end">
           <button
+            onClick={onBookClick}
             className="font-semibold text-[#0054B1] rounded-xl transition-all duration-200 hover:bg-[#0054B1] hover:text-white"
-            style={{
-              fontSize: '15px',
-              padding: '12px 24px',
-              border: '2px solid #0054B1',
-            }}
+            style={{ fontSize: '15px', padding: '12px 24px', border: '2px solid #0054B1', cursor: 'pointer' }}
           >
             Book a Consultation
           </button>
@@ -63,10 +69,7 @@ const Navbar = () => {
 
         {/* Mobile hamburger */}
         <div className="lg:hidden flex items-center justify-end col-span-2">
-          <button
-            className="p-2 text-gray-700"
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
+          <button className="p-2 text-gray-700" onClick={() => setMobileOpen(!mobileOpen)}>
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
@@ -78,15 +81,18 @@ const Navbar = () => {
           {navLinks.map((link) => (
             <a
               key={link.label}
-              href="#"
+              href={link.href}
+              onClick={e => { scrollTo(e, link.href); setMobileOpen(false); }}
               className="text-[15px] font-medium text-gray-700 hover:text-[#0054B1] transition-colors"
+              style={{ textDecoration: 'none' }}
             >
               {link.label}
             </a>
           ))}
           <button
+            onClick={() => { setMobileOpen(false); onBookClick(); }}
             className="mt-1 font-semibold text-[#0054B1] rounded-xl hover:bg-[#0054B1] hover:text-white transition-all duration-200 w-full"
-            style={{ fontSize: '15px', padding: '12px 24px', border: '2px solid #0054B1' }}
+            style={{ fontSize: '15px', padding: '12px 24px', border: '2px solid #0054B1', cursor: 'pointer' }}
           >
             Book a Consultation
           </button>

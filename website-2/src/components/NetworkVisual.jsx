@@ -11,7 +11,6 @@ const SERVICE_NODES = [
     icon: FileText,
     // top-center-left
     cx: 205, cy: 95,
-    pos: { left: '35%', top: '14%' },
     delay: 0.2,
   },
   {
@@ -20,7 +19,6 @@ const SERVICE_NODES = [
     icon: Landmark,
     // top-right
     cx: 390, cy: 85,
-    pos: { left: '72%', top: '12%' },
     delay: 0.4,
   },
   {
@@ -29,7 +27,6 @@ const SERVICE_NODES = [
     icon: PieChart,
     // mid-left
     cx: 70, cy: 255,
-    pos: { left: '16%', top: '47%' },
     delay: 0.6,
   },
   {
@@ -38,7 +35,6 @@ const SERVICE_NODES = [
     icon: ShieldCheck,
     // mid-right
     cx: 460, cy: 255,
-    pos: { left: '83%', top: '47%' },
     delay: 0.8,
   },
   {
@@ -47,10 +43,12 @@ const SERVICE_NODES = [
     icon: UserCheck,
     // bottom-center
     cx: 255, cy: 430,
-    pos: { left: '50%', top: '82%' },
     delay: 1.0,
   },
-];
+].map(node => ({
+  ...node,
+  pos: { left: `${(node.cx / 510) * 100}%`, top: `${(node.cy / 510) * 100}%` }
+}));
 
 // Center node coords in the 500x500 viewBox
 const CENTER = { cx: 255, cy: 255 };
