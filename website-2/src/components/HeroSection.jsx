@@ -45,23 +45,17 @@ const STEPS = [
 
 const HeroSection = () => {
   return (
-    <section className="w-full bg-white overflow-hidden">
+    <section className="w-full bg-white overflow-hidden pt-[100px]">
       <div
+        className="container-custom grid grid-cols-1 lg:grid-cols-2 items-center"
         style={{
-          width: '100%',
-          maxWidth: '1600px',
-          margin: '0 auto',
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          alignItems: 'center',
-          minHeight: 'calc(100vh - 90px)',
-          padding: '0 60px',
+          minHeight: 'calc(100vh - 100px)',
           gap: '40px',
         }}
       >
 
         {/* ── LEFT: Text Content ── */}
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: '64px', paddingBottom: '64px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: 'clamp(60px, 12vh, 140px)', paddingBottom: 'clamp(40px, 10vh, 100px)' }}>
 
           {/* Eyebrow */}
           <motion.p
@@ -134,7 +128,7 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.9 }}
-            style={{ display: 'flex', alignItems: 'center', gap: '16px', flexWrap: 'wrap', marginBottom: '40px' }}
+            className="flex flex-col sm:flex-row items-center gap-6 mb-20"
           >
             <motion.button
               whileHover={{ scale: 1.03, boxShadow: '0 6px 24px rgba(0,84,177,0.3)' }}
@@ -198,23 +192,24 @@ const HeroSection = () => {
             style={{
               display: 'flex',
               alignItems: 'center',
-              gap: '24px',
-              paddingTop: '24px',
+              gap: '64px',
+              paddingTop: '64px',
               borderTop: '1px solid #E8ECF0',
+              flexWrap: 'wrap',
             }}
           >
             {STATS.map(({ icon: Icon, number, label }) => (
-              <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+              <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
                 <div style={{
-                  width: '40px', height: '40px', borderRadius: '50%',
+                  width: '64px', height: '64px', borderRadius: '50%',
                   background: 'rgba(0,84,177,0.08)',
                   display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
                 }}>
-                  <Icon size={18} color="#0054B1" strokeWidth={1.5} />
+                  <Icon size={28} color="#0054B1" strokeWidth={1.5} />
                 </div>
                 <div>
-                  <div style={{ fontSize: '18px', fontWeight: 900, color: '#000', lineHeight: 1 }}>{number}</div>
-                  <div style={{ fontSize: '12px', color: '#6B7280', marginTop: '3px' }}>{label}</div>
+                  <div style={{ fontSize: '28px', fontWeight: 900, color: '#000', lineHeight: 1 }}>{number}</div>
+                  <div style={{ fontSize: '15px', color: '#6B7280', marginTop: '6px', fontWeight: 500 }}>{label}</div>
                 </div>
               </div>
             ))}

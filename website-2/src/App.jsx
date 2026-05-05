@@ -23,7 +23,7 @@ function App() {
   }, []);
 
   return (
-    <div className="w-full min-h-screen bg-white">
+    <div className="w-full min-h-screen bg-[var(--color-bg-light)]">
       <Navbar onBookClick={() => setPopupOpen(true)} />
 
       <div id="home"><HeroSection onBookClick={() => setPopupOpen(true)} /></div>
@@ -33,36 +33,36 @@ function App() {
       <div id="testimonials"><TestimonialsSection /></div>
 
       {/* Contact anchor — minimal footer placeholder */}
-      <div id="contact" style={{ background: '#0A1628', padding: '60px', textAlign: 'center' }}>
-        <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '16px' }}>
+      <div id="contact" className="container-custom mt-20 text-center" style={{ background: '#0A1628', maxWidth: 'none', borderRadius: '40px 40px 0 0', padding: '160px 24px 100px' }}>
+        <p style={{ fontSize: '12px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '20px' }}>
           Get In Touch
         </p>
-        <h2 style={{ fontSize: 'clamp(1.6rem, 2.5vw, 2.4rem)', fontWeight: 900, color: '#fff', marginBottom: '12px' }}>
+        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 900, color: '#fff', marginBottom: '24px' }}>
           Start With a Conversation.
         </h2>
-        <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.6)', marginBottom: '32px', maxWidth: '480px', margin: '0 auto 32px' }}>
+        <p style={{ fontSize: '18px', color: 'rgba(255,255,255,0.6)', marginBottom: '48px', maxWidth: '600px', margin: '0 auto 48px' }}>
           Every engagement begins with a discovery call — no pitching, no pressure. Just a focused conversation about whether we're the right fit.
         </p>
         <button
           onClick={() => setPopupOpen(true)}
           style={{
             background: '#fff', color: '#0054B1', fontWeight: 700,
-            fontSize: '15px', padding: '14px 32px', borderRadius: '10px',
-            border: 'none', cursor: 'pointer', marginBottom: '40px',
+            fontSize: '18px', padding: '20px 48px', borderRadius: '16px',
+            border: 'none', cursor: 'pointer', marginBottom: '80px',
           }}
         >
           Book a Discovery Call →
         </button>
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '40px', flexWrap: 'wrap', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '32px', marginTop: '16px' }}>
-          <div style={{ textAlign: 'center' }}>
+        <div className="flex flex-col md:flex-row justify-center gap-10 md:gap-[60px] flex-wrap border-t border-white/10 pt-12 mt-4">
+          <div style={{ textAlign: 'center', minWidth: '200px' }}>
             <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.4)', marginBottom: '4px' }}>Location</p>
             <p style={{ fontSize: '14px', color: '#fff', fontWeight: 600 }}>📍 Dubai, United Arab Emirates</p>
           </div>
-          <div style={{ textAlign: 'center' }}>
+          <div style={{ textAlign: 'center', minWidth: '200px' }}>
             <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.4)', marginBottom: '4px' }}>Email</p>
             <p style={{ fontSize: '14px', color: '#4B9FF3', fontWeight: 600 }}>📧 hello@incorvia.com</p>
           </div>
-          <div style={{ textAlign: 'center' }}>
+          <div style={{ textAlign: 'center', minWidth: '200px' }}>
             <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.4)', marginBottom: '4px' }}>Office Hours</p>
             <p style={{ fontSize: '14px', color: '#fff', fontWeight: 600 }}>Mon–Fri: 9AM – 6PM GST</p>
           </div>

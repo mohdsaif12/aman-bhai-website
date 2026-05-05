@@ -9,6 +9,7 @@
   --color-black:     #000000;
   --color-text-muted: #4A5568;
   --color-text-node:  #1A202C;
+  --color-bg-light:  #F7FAFF;
 
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
   font-synthesis: none;
@@ -27,7 +28,7 @@
 html, body, #root {
   width: 100%;
   min-height: 100vh;
-  background-color: #ffffff;
+  background-color: var(--color-bg-light);
   color: #000000;
 }
 
@@ -84,4 +85,27 @@ body {
 
 .animate-float {
   animation: float 4s ease-in-out infinite;
+}
+
+/* ─── Global Container ─── */
+.container-custom {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-custom {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
 }

@@ -77,8 +77,8 @@ const SERVICES = [
 
 const ServicesSection = () => (
   <section
-    className="w-full bg-white overflow-hidden relative flex justify-center"
-    style={{ padding: '100px 0' }}
+    className="w-full bg-transparent overflow-hidden relative flex justify-center"
+    style={{ padding: 'clamp(60px, 10vh, 100px) 0' }}
   >
     {/* Deco lines top-right */}
     <svg className="absolute top-0 right-0 pointer-events-none opacity-50" width="280" height="280" viewBox="0 0 280 280" fill="none">
@@ -86,37 +86,30 @@ const ServicesSection = () => (
       <line x1="40" y1="280" x2="280" y2="40" stroke="#4B9FF3" strokeWidth="0.6" opacity="0.5"/>
     </svg>
 
-    <div className="w-full max-w-[1600px] px-[60px]">
+    <div className="container-custom z-10">
       {/* Header */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="flex flex-col items-center mb-16"
+        className="flex flex-col items-center mb-24"
       >
-        <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '10px' }}>
+        <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '16px' }}>
           Advisory Scope
         </p>
-        <div style={{ width: '32px', height: '2px', background: '#0054B1', marginBottom: '20px' }} />
-        <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3.2rem)', fontWeight: 900, lineHeight: 1.15, color: '#0A1628', textAlign: 'center', marginBottom: '20px' }}>
+        <div style={{ width: '48px', height: '3px', background: '#0054B1', marginBottom: '32px', borderRadius: '2px' }} />
+        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 4rem)', fontWeight: 900, lineHeight: 1.1, color: '#0A1628', textAlign: 'center', marginBottom: '24px' }}>
           Everything Your Business Needs.<br />
           <span style={{ color: '#0054B1' }}>Structured Properly.</span>
         </h2>
-        <p style={{ fontSize: '16px', color: '#6B7280', lineHeight: 1.7, textAlign: 'center', maxWidth: '560px' }}>
-          We don't offer packages. We design engagements based on what your business actually needs.
+        <p style={{ fontSize: '18px', color: '#6B7280', lineHeight: 1.7, textAlign: 'center', maxWidth: '640px' }}>
+          We don't offer packages. We design custom engagements based on what your business actually needs to thrive in the UAE.
         </p>
       </motion.div>
 
       {/* Cards — 3 col grid */}
-      <div
-        style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
-          gap: '28px',
-          width: '100%'
-        }}
-      >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 w-full">
         {SERVICES.map(({ title, desc, icon, includes }, index) => (
           <motion.div
             key={title}
@@ -145,24 +138,24 @@ const ServicesSection = () => (
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
-            <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: '#EEF4FD', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
+            <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: '#EEF4FD', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px', alignSelf: 'center' }}>
               {icon}
             </div>
-            <div style={{ width: '28px', height: '2.5px', background: '#0054B1', borderRadius: '2px', marginBottom: '16px' }} />
-            <p style={{ fontSize: '17px', fontWeight: 800, color: '#0A1628', lineHeight: 1.3, marginBottom: '12px' }}>{title}</p>
-            <p style={{ fontSize: '14px', color: '#6B7280', lineHeight: 1.7, flex: 1, marginBottom: '20px' }}>{desc}</p>
+            <div style={{ width: '28px', height: '2.5px', background: '#0054B1', borderRadius: '2px', marginBottom: '16px', alignSelf: 'center' }} />
+            <p style={{ fontSize: '17px', fontWeight: 800, color: '#0A1628', lineHeight: 1.3, marginBottom: '12px', textAlign: 'center' }}>{title}</p>
+            <p style={{ fontSize: '14px', color: '#6B7280', lineHeight: 1.7, flex: 1, marginBottom: '20px', textAlign: 'center' }}>{desc}</p>
 
             {/* Includes list */}
-            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
               {includes.map(item => (
-                <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '12px', color: '#6B7280' }}>
-                  <span style={{ color: '#0054B1', fontWeight: 700, marginTop: '1px', flexShrink: 0 }}>→</span>
+                <li key={item} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: '#6B7280', textAlign: 'center' }}>
+                  <span style={{ color: '#0054B1', fontWeight: 700, flexShrink: 0 }}>→</span>
                   {item}
                 </li>
               ))}
             </ul>
 
-            <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '14px', fontWeight: 600, color: '#0054B1', textDecoration: 'none' }}>
+            <a href="#" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontSize: '14px', fontWeight: 600, color: '#0054B1', textDecoration: 'none' }}>
               Learn More
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="2" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>

@@ -60,8 +60,8 @@ const HowItWorks = () => {
 
   return (
     <section style={{
-      background: '#F8FAFF',
-      padding: '120px 0',
+      background: 'transparent',
+      padding: 'clamp(60px, 10vh, 120px) 0',
       display: 'flex',
       justifyContent: 'center',
       overflow: 'hidden',
@@ -74,7 +74,7 @@ const HowItWorks = () => {
         <circle cx="0" cy="320" r="150" stroke="#4B9FF3" strokeWidth="0.6"/>
       </svg>
 
-      <div style={{ width: '100%', maxWidth: '1600px', padding: '0 60px' }}>
+      <div className="container-custom z-10">
 
         {/* Header */}
         <motion.div
@@ -97,7 +97,7 @@ const HowItWorks = () => {
         </motion.div>
 
         {/* 2-col layout: steps list left, image + detail right */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '48px', alignItems: 'start' }}>
+        <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-12">
 
           {/* LEFT — Step list */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
