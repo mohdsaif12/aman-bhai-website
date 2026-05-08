@@ -2,8 +2,18 @@ import { motion } from 'framer-motion';
 
 const SERVICES = [
   {
-    title: 'Business Structuring & Company Formation',
-    desc: 'We assess your business model, ownership goals, and growth trajectory — then recommend the right structure. Mainland, free zone, or offshore — with the right activity codes and compliance baseline.',
+    title: 'Business Advisory Services',
+    desc: 'Before anything is filed, we think. We analyse your goals, your risk profile, your residency needs, and your growth trajectory — then we design a structure that serves all of them. This is where every Incorvia engagement begins.',
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
+      </svg>
+    ),
+    includes: ['Goal & risk profile analysis', 'Residency needs assessment', 'Growth trajectory planning'],
+  },
+  {
+    title: 'Business Incorporation',
+    desc: 'Free Zone, Mainland, and Offshore — we manage complete business setup across all major UAE jurisdictions. We don\'t just process paperwork. We ensure the entity you form is the right one for where you are going, not just where you are today.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
@@ -11,48 +21,11 @@ const SERVICES = [
         <path d="M14 14h2m0 0h3m-3 0v3m0-3v-2"/>
       </svg>
     ),
-    includes: ['Jurisdiction evaluation & activity selection', 'Ownership structuring', 'DED / Free Zone / Offshore applications'],
+    includes: ['Free Zone, Mainland & Offshore', 'Full jurisdiction management', 'Entity formation & registration'],
   },
   {
-    title: 'PRO Services & Government Liaison',
-    desc: 'Government touchpoints in the UAE are numerous and non-negotiable. Our PRO team manages every interaction with accuracy and professionalism.',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        <polyline points="9 12 11 14 15 10"/>
-      </svg>
-    ),
-    includes: ['Document processing & attestation', 'Ministry filings', 'Trade license renewals', 'Regulatory coordination'],
-  },
-  {
-    title: 'Visa & Immigration',
-    desc: 'We manage the end-to-end visa process for investors, employees, and dependents — ensuring full compliance with UAE immigration authority requirements.',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="4" width="18" height="16" rx="2"/>
-        <circle cx="9" cy="10" r="2"/>
-        <path d="M15 8h2M15 12h2M5 16s1-2 4-2 4 2 4 2"/>
-      </svg>
-    ),
-    includes: ['Investor & partner visas', 'Employment visas', 'Dependent & family visas', 'Renewals & cancellations'],
-  },
-  {
-    title: 'Corporate Compliance & Amendments',
-    desc: 'Business structures evolve. We manage the amendments, renewals, and compliance obligations that keep your business in good standing — without disrupting operations.',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="5" y="2" width="14" height="20" rx="2"/>
-        <line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/>
-        <line x1="9" y1="15" x2="12" y2="15"/>
-        <rect x="13" y="13" width="6" height="6" rx="1"/>
-        <line x1="15" y1="13" x2="15" y2="19"/><line x1="13" y1="16" x2="19" y2="16"/>
-      </svg>
-    ),
-    includes: ['Shareholder changes', 'Activity amendments', 'Annual renewals & compliance monitoring', 'Corporate governance support'],
-  },
-  {
-    title: 'Banking Readiness & Account Support',
-    desc: 'Corporate banking in the UAE requires proper documentation, the right business profile, and an understanding of what banks assess. We prepare your file.',
+    title: 'Banking Support & Compliance',
+    desc: 'Corporate account opening is one of the most underestimated challenges in the UAE. We prepare your documentation, position your entity correctly, and manage the full banking engagement — so approvals happen and accounts perform.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/>
@@ -60,22 +33,57 @@ const SERVICES = [
         <line x1="18" y1="18" x2="18" y2="11"/><polyline points="2 11 12 2 22 11"/>
       </svg>
     ),
-    includes: ['Banking document preparation & profile alignment', 'Bank introductions & facilitation'],
+    includes: ['Documentation preparation', 'Entity profile positioning', 'End-to-end banking engagement'],
   },
   {
-    title: 'Ongoing Strategic Advisory',
-    desc: 'As your business scales, your advisory needs evolve. We remain engaged as a trusted partner for compliance decisions, structural adjustments, and strategic questions.',
+    title: 'Golden Visa & Residency',
+    desc: 'UAE residency pathways for founders, investors, and high-net-worth individuals — structured, managed, and executed end to end. We handle the full process so you and your family are covered.',
     icon: (
       <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M12 8v4l3 3"/>
+        <rect x="3" y="4" width="18" height="16" rx="2"/>
+        <circle cx="9" cy="10" r="2"/>
+        <path d="M15 8h2M15 12h2M5 16s1-2 4-2 4 2 4 2"/>
       </svg>
     ),
-    includes: ['Strategic reviews & expansion advisory', 'Compliance guidance', 'Structural optimisation as you scale'],
+    includes: ['Investor & founder visas', 'Golden Visa applications', 'Family & dependent coverage'],
+  },
+  {
+    title: 'Tax Advisory & Accounting',
+    desc: 'In partnership with our sister company, we provide UAE corporate tax advisory, VAT compliance, and accounting services — fully integrated with your structure from day one. No gaps. No misalignment between your entity and your books.',
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2"/>
+        <line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/>
+        <line x1="9" y1="15" x2="12" y2="15"/>
+      </svg>
+    ),
+    includes: ['Corporate tax advisory', 'VAT compliance', 'Accounting & bookkeeping'],
+  },
+  {
+    title: 'Corporate & PRO Services — Government Liaison',
+    desc: 'Visa applications, Emirates ID, licence renewals, trade name registrations, notarisations, attestations — every interaction with UAE government authorities, managed professionally and without delay.',
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+        <polyline points="9 12 11 14 15 10"/>
+      </svg>
+    ),
+    includes: ['Visa & Emirates ID processing', 'Licence renewals & amendments', 'Notarisations & attestations'],
+  },
+  {
+    title: 'Holding Structures',
+    desc: 'For investors, HNWIs, and businesses with multi-entity or cross-border complexity — we design ownership structures that protect assets, optimise for tax efficiency, and position you for long-term growth.',
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+        <polyline points="9 22 9 12 15 12 15 22"/>
+      </svg>
+    ),
+    includes: ['Multi-entity structuring', 'Asset protection planning', 'Cross-border optimisation'],
   },
 ];
 
-const ServicesSection = () => (
+const ServicesSection = ({ onBookClick }) => (
   <section
     className="w-full bg-transparent overflow-hidden relative flex justify-center"
     style={{ padding: 'clamp(60px, 10vh, 100px) 0' }}
@@ -93,35 +101,35 @@ const ServicesSection = () => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-        className="flex flex-col items-center mb-24"
+        className="flex flex-col items-center mb-16"
       >
         <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '16px' }}>
           Advisory Scope
         </p>
         <div style={{ width: '48px', height: '3px', background: '#0054B1', marginBottom: '32px', borderRadius: '2px' }} />
-        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 4rem)', fontWeight: 900, lineHeight: 1.1, color: '#0A1628', textAlign: 'center', marginBottom: '24px' }}>
-          Everything Your Business Needs.<br />
-          <span style={{ color: '#0054B1' }}>Structured Properly.</span>
+        <h2 style={{ fontSize: 'clamp(2rem, 4vw, 4rem)', fontWeight: 900, lineHeight: 1.1, color: '#0A1628', textAlign: 'center', marginBottom: '16px' }}>
+          A Complete Advisory Ecosystem.<br />
+          <span style={{ color: '#0054B1' }}>Built Around Your Structure.</span>
         </h2>
         <p style={{ fontSize: '18px', color: '#6B7280', lineHeight: 1.7, textAlign: 'center', maxWidth: '640px' }}>
-          We don't offer packages. We design custom engagements based on what your business actually needs to thrive in the UAE.
+          We don't offer services. We offer outcomes. Every engagement begins with strategy — and every service we provide is designed to support one goal: a business that is structured to perform.
         </p>
       </motion.div>
 
-      {/* Cards — 3 col grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 w-full">
+      {/* Cards — 3 col grid (last card centred via wrapper) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 w-full">
         {SERVICES.map(({ title, desc, icon, includes }, index) => (
           <motion.div
             key={title}
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.7, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.7, delay: index * 0.07, ease: [0.16, 1, 0.3, 1] }}
             style={{
               background: '#fff',
               border: '1px solid #E5EAF0',
               borderRadius: '20px',
-              padding: '40px 32px 36px',
+              padding: '36px 28px 32px',
               display: 'flex',
               flexDirection: 'column',
               cursor: 'pointer',
@@ -138,15 +146,15 @@ const ServicesSection = () => (
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
-            <div style={{ width: '64px', height: '64px', borderRadius: '50%', background: '#EEF4FD', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px', alignSelf: 'center' }}>
+            <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: '#EEF4FD', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', alignSelf: 'center' }}>
               {icon}
             </div>
-            <div style={{ width: '28px', height: '2.5px', background: '#0054B1', borderRadius: '2px', marginBottom: '16px', alignSelf: 'center' }} />
-            <p style={{ fontSize: '17px', fontWeight: 800, color: '#0A1628', lineHeight: 1.3, marginBottom: '12px', textAlign: 'center' }}>{title}</p>
-            <p style={{ fontSize: '14px', color: '#6B7280', lineHeight: 1.7, flex: 1, marginBottom: '20px', textAlign: 'center' }}>{desc}</p>
+            <div style={{ width: '28px', height: '2.5px', background: '#0054B1', borderRadius: '2px', marginBottom: '14px', alignSelf: 'center' }} />
+            <p style={{ fontSize: '16px', fontWeight: 800, color: '#0A1628', lineHeight: 1.3, marginBottom: '10px', textAlign: 'center' }}>{title}</p>
+            <p style={{ fontSize: '14px', color: '#6B7280', lineHeight: 1.75, flex: 1, marginBottom: '18px', textAlign: 'center' }}>{desc}</p>
 
             {/* Includes list */}
-            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 24px', display: 'flex', flexDirection: 'column', gap: '8px', alignItems: 'center' }}>
+            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px', display: 'flex', flexDirection: 'column', gap: '7px', alignItems: 'center' }}>
               {includes.map(item => (
                 <li key={item} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: '#6B7280', textAlign: 'center' }}>
                   <span style={{ color: '#0054B1', fontWeight: 700, flexShrink: 0 }}>→</span>
@@ -163,13 +171,24 @@ const ServicesSection = () => (
         ))}
       </div>
 
+      {/* Closing tagline */}
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8, delay: 0.4 }}
+        style={{ textAlign: 'center', marginTop: '56px', fontSize: '16px', fontStyle: 'italic', color: '#9CA3AF' }}
+      >
+        Every service we offer feeds back into one thing: <em style={{ color: '#0054B1', fontStyle: 'normal', fontWeight: 600 }}>a structure that works.</em>
+      </motion.p>
+
       {/* Bottom CTA */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        style={{ textAlign: 'center', marginTop: '60px' }}
+        style={{ textAlign: 'center', marginTop: '40px' }}
       >
         <p style={{ fontSize: '15px', color: '#6B7280', marginBottom: '20px' }}>
           Every engagement starts with a conversation — not a quote.
@@ -177,15 +196,11 @@ const ServicesSection = () => (
         <motion.button
           whileHover={{ scale: 1.03, boxShadow: '0 6px 24px rgba(0,84,177,0.3)' }}
           whileTap={{ scale: 0.97 }}
+          onClick={onBookClick}
           style={{
-            background: '#0054B1',
-            color: '#fff',
-            fontWeight: 600,
-            fontSize: '15px',
-            padding: '14px 32px',
-            borderRadius: '10px',
-            border: 'none',
-            cursor: 'pointer',
+            background: '#0054B1', color: '#fff', fontWeight: 600,
+            fontSize: '15px', padding: '14px 32px', borderRadius: '10px',
+            border: 'none', cursor: 'pointer',
           }}
         >
           Book Your Discovery Call

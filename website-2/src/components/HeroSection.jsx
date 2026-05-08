@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, Building2, Award, Landmark } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 import NetworkVisual from './NetworkVisual';
 
 const STATS = [
@@ -43,7 +44,9 @@ const STEPS = [
   'Ongoing Support',
 ];
 
-const HeroSection = () => {
+const HeroSection = ({ onBookClick }) => {
+  const navigate = useNavigate();
+
   return (
     <section className="w-full bg-white overflow-hidden pt-[100px]">
       <div
@@ -133,6 +136,7 @@ const HeroSection = () => {
             <motion.button
               whileHover={{ scale: 1.03, boxShadow: '0 6px 24px rgba(0,84,177,0.3)' }}
               whileTap={{ scale: 0.97 }}
+              onClick={onBookClick}
               style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -154,6 +158,7 @@ const HeroSection = () => {
             <motion.button
               whileHover={{ scale: 1.03, background: 'rgba(0,84,177,0.04)' }}
               whileTap={{ scale: 0.97 }}
+              onClick={() => navigate('/about#how-it-works')}
               style={{
                 background: 'transparent',
                 color: '#0054B1',

@@ -200,10 +200,12 @@ const NetworkVisual = () => {
               boxShadow: '0 8px 32px rgba(0, 84, 177, 0.35), 0 0 0 6px rgba(0,84,177,0.1)',
             }}
           >
-            {/* White "A" logo in center node */}
-            <svg width="44" height="44" viewBox="0 0 36 36" fill="none">
-              <path d="M18 3 L34 32 H2 Z" fill="white" />
-              <path d="M18 16 L24 28 H12 Z" fill="#0054B1" />
+            {/* Precise Geometric "V" Arrow Shards in center node */}
+            <svg width="52" height="52" viewBox="0 0 100 100" fill="white">
+              {/* Left Wedge Shard */}
+              <path d="M15 35 L48 68 L28 28 Z" />
+              {/* Right Arrow Shard */}
+              <path d="M42 78 L85 25 L65 25 L85 25 L85 45 Z" />
             </svg>
           </div>
         </motion.div>

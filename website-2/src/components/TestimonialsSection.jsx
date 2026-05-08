@@ -16,7 +16,11 @@ const CLIENT_LOGOS = [
 
 const TestimonialsSection = () => {
   // We duplicate the logos array to create a seamless infinite loop
+// Duplicate logos for infinite scroll
   const infiniteLogos = [...CLIENT_LOGOS, ...CLIENT_LOGOS];
+  // Index of middle logo in original list (zero based)
+  const middleIndex = Math.floor(CLIENT_LOGOS.length / 2);
+
 
   return (
     <section style={{ background: 'transparent', padding: 'clamp(60px, 10vh, 100px) 0', overflow: 'hidden', position: 'relative' }}>
@@ -40,67 +44,51 @@ const TestimonialsSection = () => {
       </div>
 
       {/* Infinite Marquee Container */}
-      <div style={{ position: 'relative', width: '100%', display: 'flex', overflow: 'hidden' }}>
-        
-        {/* Left and Right Fade Overlays for seamless entry/exit */}
-        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '15%', background: 'linear-gradient(to right, var(--color-bg-light) 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }} />
-        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '15%', background: 'linear-gradient(to left, var(--color-bg-light) 0%, transparent 100%)', zIndex: 10, pointerEvents: 'none' }} />
+      <div style={{ position: 'relative', width: '100%', height: '240px', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
 
-        {/* Marquee Track */}
+        {/* Track 1: Grayscale (Base) */}
         <motion.div
           animate={{ x: ['0%', '-50%'] }}
           transition={{
-            x: {
-              repeat: Infinity,
-              repeatType: 'loop',
-              duration: 35, // Adjust speed here
-              ease: 'linear',
-            },
+            x: { repeat: Infinity, repeatType: 'loop', duration: 50, ease: 'linear' },
           }}
-          style={{ display: 'flex', width: 'max-content' }}
+          style={{ 
+            display: 'flex', width: 'max-content', position: 'absolute', left: 0, top: 0, bottom: 0, alignItems: 'center',
+            opacity: 0.7, filter: 'grayscale(100%)' 
+          }}
         >
           {infiniteLogos.map((logo, i) => (
-            <div
-              key={`${logo.name}-${i}`}
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                width: '240px',
-                height: '140px',
-                padding: '20px',
-                margin: '0 24px',
-                background: '#fff',
-                borderRadius: '16px',
-                border: '1px solid #F1F5F9',
-                boxShadow: '0 10px 30px rgba(0,84,177,0.03)',
-                flexShrink: 0,
-              }}
-            >
-              <img
-                src={`/clients/${logo.file}`}
-                alt={`${logo.name} Logo`}
-                style={{
-                  maxWidth: '100%',
-                  maxHeight: '100%',
-                  objectFit: 'contain',
-                  filter: 'grayscale(100%) opacity(70%)',
-                  transition: 'all 0.3s ease',
-                  cursor: 'pointer',
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.filter = 'grayscale(0%) opacity(100%)';
-                  e.currentTarget.style.transform = 'scale(1.05)';
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.filter = 'grayscale(100%) opacity(70%)';
-                  e.currentTarget.style.transform = 'scale(1)';
-                }}
-              />
+            <div key={`gray-${i}`} style={{ width: '360px', margin: '0 80px', flexShrink: 0, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <img src={`/clients/${logo.file}`} alt="" style={{ height: '130px', maxWidth: '100%', objectFit: 'contain' }} />
             </div>
           ))}
         </motion.div>
+
+        {/* Track 2: Colored (Masked to Center) */}
+        <motion.div
+          animate={{ x: ['0%', '-50%'] }}
+          transition={{
+            x: { repeat: Infinity, repeatType: 'loop', duration: 50, ease: 'linear' },
+          }}
+          style={{ 
+            display: 'flex', width: 'max-content', position: 'absolute', left: 0, top: 0, bottom: 0, alignItems: 'center',
+            WebkitMaskImage: 'linear-gradient(to right, transparent 15%, black 30%, black 70%, transparent 85%)',
+            maskImage: 'linear-gradient(to right, transparent 15%, black 30%, black 70%, transparent 85%)',
+            zIndex: 5
+          }}
+        >
+          {infiniteLogos.map((logo, i) => (
+            <div key={`color-${i}`} style={{ width: '360px', margin: '0 80px', flexShrink: 0, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <img src={`/clients/${logo.file}`} alt="" style={{ height: '130px', maxWidth: '100%', objectFit: 'contain' }} />
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Edge Fades */}
+        <div style={{ position: 'absolute', left: 0, top: 0, bottom: 0, width: '20%', background: 'linear-gradient(to right, #fff 0%, transparent 100%)', zIndex: 10 }} />
+        <div style={{ position: 'absolute', right: 0, top: 0, bottom: 0, width: '20%', background: 'linear-gradient(to left, #fff 0%, transparent 100%)', zIndex: 10 }} />
       </div>
+
 
     </section>
   );

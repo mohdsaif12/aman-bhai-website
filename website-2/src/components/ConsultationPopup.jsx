@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle, AlertCircle, Loader } from 'lucide-react';
 
 // ─── PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE ───────────────────────
-const APPS_SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxONF4ZmIe5sE2b8ZMWLs-5ClBPnokAQ9C97j2bIWRGZ5bXuwXzP4RxK8maGwDkHxc/exec';
 // ──────────────────────────────────────────────────────────────────────────
 
 const PROCESS_OPTIONS = [
@@ -12,7 +12,18 @@ const PROCESS_OPTIONS = [
   'Already set up, need advisory',
 ];
 
-const INITIAL = { name: '', email: '', phone: '', process: '', message: '' };
+const SERVICE_OPTIONS = [
+  'Business Advisory Services',
+  'Business Incorporation',
+  'Banking Support & Compliance',
+  'Golden Visa & Residency',
+  'Tax Advisory & Accounting',
+  'Corporate & PRO Services — Government Liaison',
+  'Holding Structures',
+  'Others',
+];
+
+const INITIAL = { name: '', email: '', phone: '', service: '', process: '', message: '' };
 
 const ConsultationPopup = ({ isOpen, onClose }) => {
   const [form, setForm] = useState(INITIAL);
@@ -26,18 +37,12 @@ const ConsultationPopup = ({ isOpen, onClose }) => {
     setStatus('loading');
 
     try {
-      if (APPS_SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL_HERE') {
-        // Demo mode — simulate success without real network call
-        await new Promise(r => setTimeout(r, 1200));
-        setStatus('success');
-        return;
-      }
-
       // POST to Google Apps Script
       const body = new URLSearchParams({
         name: form.name,
         email: form.email,
         phone: form.phone,
+        service: form.service,
         process: form.process,
         message: form.message,
         timestamp: new Date().toISOString(),
@@ -63,8 +68,20 @@ const ConsultationPopup = ({ isOpen, onClose }) => {
   };
 
   const openWhatsApp = () => {
-    const text = `Hello Incorvia, I'd like to book a discovery call.%0A%0A*Name:* ${form.name}%0A*Process:* ${form.process}%0A*Message:* ${form.message}`;
-    const phone = '9140741237'; // Replace with real WhatsApp number
+    const text = encodeURIComponent(
+`Hello Incorvia — New Client Enquiry 🎯
+
+*Name:* ${form.name}
+*Email:* ${form.email}
+*Phone:* ${form.phone}
+*Service of Interest:* ${form.service}
+*Stage / Where they are:* ${form.process}
+*Message / Goals:* ${form.message || 'Not provided'}
+
+—
+Submitted via incorvia.ae`
+    );
+    const phone = '971582581214';
     window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
   };
 
@@ -266,6 +283,29 @@ const ConsultationPopup = ({ isOpen, onClose }) => {
                         onFocus={e => e.target.style.borderColor = '#0054B1'}
                         onBlur={e => e.target.style.borderColor = '#E5EAF0'}
                       />
+                    </div>
+
+                    {/* Service of Interest */}
+                    <div>
+                      <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>
+                        Service of Interest <span style={{ color: '#EF4444' }}>*</span>
+                      </label>
+                      <select
+                        name="service" value={form.service} onChange={handleChange} required
+                        style={{
+                          width: '100%', padding: '12px 16px', border: '1.5px solid #E5EAF0',
+                          borderRadius: '10px', fontSize: '15px', color: form.service ? '#0A1628' : '#9CA3AF',
+                          outline: 'none', transition: 'border-color 0.2s', background: '#fff',
+                          boxSizing: 'border-box', appearance: 'none', cursor: 'pointer',
+                        }}
+                        onFocus={e => e.target.style.borderColor = '#0054B1'}
+                        onBlur={e => e.target.style.borderColor = '#E5EAF0'}
+                      >
+                        <option value="" disabled>Select a service...</option>
+                        {SERVICE_OPTIONS.map(opt => (
+                          <option key={opt} value={opt}>{opt}</option>
+                        ))}
+                      </select>
                     </div>
 
                     {/* Where are you */}

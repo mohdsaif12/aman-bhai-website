@@ -1,62 +1,53 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import consultationImg from '../assets/consultation.png';
-import dubaiImg from '../assets/dubai_skyline.png';
+import step1Img from '../assets/step1_discovery.png';
+import step2Img from '../assets/step2_analysis.png';
+import step3Img from '../assets/consultation.png';
+import step4Img from '../assets/dubai_skyline.png';
 
 const STEPS = [
   {
     num: '01',
-    title: 'Initial Enquiry',
-    desc: 'Your journey begins with a simple enquiry. We review your objective at a high level to understand whether Incorvia is the right fit. We are selective — and that selectivity protects the integrity of every engagement we take on.',
-    img: dubaiImg,
-    tag: 'Getting Started',
+    title: 'Initial Consultation & Discovery',
+    desc: 'Your journey begins with a focused advisory conversation. We review your objectives, background, jurisdictional needs, and constraints—without selling or pitching. We qualify our clients to protect the integrity of every engagement.',
+    img: step1Img,
+    tag: 'Discovery',
   },
   {
     num: '02',
-    title: 'Discovery Call',
-    desc: 'A focused advisory conversation with a senior consultant. We discuss your goals, background, jurisdictional needs, timelines, and constraints — without selling or pitching. This is a genuine assessment.',
-    img: consultationImg,
-    tag: 'Advisory',
-  },
-  {
-    num: '03',
-    title: 'Understanding Your Requirements',
-    desc: 'We go deeper into your business model, ownership structure, future plans, and risk exposure. This stage surfaces compliance, banking, and scalability considerations most clients would otherwise encounter too late.',
-    img: consultationImg,
-    tag: 'Analysis',
-  },
-  {
-    num: '04',
-    title: 'Advisory & Structuring',
-    desc: 'Based on the discovery, we design the right structure — not a standard package. Licensing strategy, jurisdiction alignment, compliance and risk considerations, and banking readiness. Every recommendation is intentional and defensible.',
-    img: dubaiImg,
+    title: 'Analysis & Structuring',
+    desc: 'We dive deep into your business model and future plans. Based on this, we design the optimal structure, aligning jurisdiction, licensing, and compliance considerations. Every recommendation is intentional and defensible.',
+    img: step2Img,
     tag: 'Strategy',
   },
   {
-    num: '05',
-    title: 'Advisory Sign-Off & Clarity',
-    desc: 'Before execution begins, you receive a clear roadmap: what will be done, why it is being done, and what the timelines, costs, and next steps look like. No ambiguity. No rushed decisions.',
-    img: consultationImg,
-    tag: 'Sign-Off',
+    num: '03',
+    title: 'Client Onboarding',
+    desc: 'Before execution begins, you receive a clear, unambiguous roadmap. We outline exactly what will be done, why it is being done, timelines, costs, and next steps. No rushed decisions, only clarity.',
+    img: step3Img,
+    tag: 'Onboarding',
   },
   {
-    num: '06',
-    title: 'Execution & Processing',
-    desc: 'With the thinking done correctly, execution becomes smooth. We handle licensing, documentation, regulatory coordination, follow-ups, and approvals end-to-end.',
-    img: dubaiImg,
+    num: '04',
+    title: 'Execution & Ongoing Support',
+    desc: 'With the strategy finalized, we handle the licensing, regulatory coordination, and approvals end-to-end. As your business evolves, we remain your strategic partner for compliance, amendments, and growth advisory.',
+    img: step4Img,
     tag: 'Execution',
-  },
-  {
-    num: '07',
-    title: 'Ongoing Support',
-    desc: 'As your business evolves, we remain available for compliance support, amendments, expansions, and strategic advisory. Businesses that are well-advised early scale without the costly surprises.',
-    img: dubaiImg,
-    tag: 'Long-Term',
   },
 ];
 
-const HowItWorks = () => {
+const HowItWorks = ({ onBookClick }) => {
   const [activeStep, setActiveStep] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Auto-play logic
+  useEffect(() => {
+    if (isPaused) return;
+    const interval = setInterval(() => {
+      setActiveStep((prev) => (prev + 1) % STEPS.length);
+    }, 5000); // 5 seconds per slide
+    return () => clearInterval(interval);
+  }, [isPaused]);
 
   return (
     <section style={{
@@ -74,7 +65,7 @@ const HowItWorks = () => {
         <circle cx="0" cy="320" r="150" stroke="#4B9FF3" strokeWidth="0.6"/>
       </svg>
 
-      <div className="container-custom z-10">
+      <div className="container-custom z-10 w-full">
 
         {/* Header */}
         <motion.div
@@ -82,192 +73,89 @@ const HowItWorks = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-          style={{ textAlign: 'center', marginBottom: '72px' }}
+          style={{ textAlign: 'center', marginBottom: '96px' }}
         >
           <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '10px' }}>
             How It Works
           </p>
           <div style={{ width: '32px', height: '2px', background: '#0054B1', margin: '0 auto 20px' }} />
           <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3.2rem)', fontWeight: 900, lineHeight: 1.15, color: '#0A1628', marginBottom: '16px' }}>
-            A Process Built Around<br /><span style={{ color: '#0054B1' }}>Thinking First.</span>
+            4. How It Works
           </h2>
           <p style={{ fontSize: '16px', color: '#6B7280', lineHeight: 1.7, maxWidth: '520px', margin: '0 auto' }}>
             We follow a structured advisory process because the quality of the outcome depends on the quality of the thinking that precedes it.
           </p>
         </motion.div>
 
-        {/* 2-col layout: steps list left, image + detail right */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 items-start gap-12">
-
-          {/* LEFT — Step list */}
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-            {STEPS.map(({ num, title, tag }, i) => (
-              <motion.div
-                key={num}
-                initial={{ opacity: 0, x: -24 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true, margin: '-40px' }}
-                transition={{ duration: 0.6, delay: i * 0.06, ease: [0.16, 1, 0.3, 1] }}
-                onClick={() => setActiveStep(i)}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '20px',
-                  padding: '20px 24px',
-                  borderRadius: '16px',
-                  cursor: 'pointer',
-                  background: activeStep === i ? '#fff' : 'transparent',
-                  border: activeStep === i ? '1px solid rgba(0,84,177,0.15)' : '1px solid transparent',
-                  boxShadow: activeStep === i ? '0 8px 32px rgba(0,84,177,0.08)' : 'none',
-                  transition: 'all 0.3s ease',
-                }}
-              >
-                {/* Number circle */}
-                <div style={{
-                  width: '48px',
-                  height: '48px',
-                  borderRadius: '50%',
-                  background: activeStep === i ? '#0054B1' : '#E8EDF5',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '13px',
-                  fontWeight: 800,
-                  color: activeStep === i ? '#fff' : '#6B7280',
-                  flexShrink: 0,
-                  transition: 'all 0.3s ease',
-                  boxShadow: activeStep === i ? '0 4px 16px rgba(0,84,177,0.3)' : 'none',
-                }}>
-                  {num}
-                </div>
-
-                {/* Title + tag */}
-                <div style={{ flex: 1 }}>
-                  <p style={{
-                    fontSize: '15px',
-                    fontWeight: 700,
-                    color: activeStep === i ? '#0A1628' : '#6B7280',
-                    marginBottom: '3px',
-                    transition: 'color 0.3s',
-                  }}>
-                    {title}
-                  </p>
-                  <span style={{
-                    fontSize: '11px',
-                    fontWeight: 600,
-                    letterSpacing: '0.1em',
-                    textTransform: 'uppercase',
-                    color: activeStep === i ? '#4B9FF3' : '#9CA3AF',
-                    transition: 'color 0.3s',
-                  }}>
-                    {tag}
-                  </span>
-                </div>
-
-                {/* Active indicator */}
-                <div style={{
-                  width: '6px',
-                  height: '6px',
-                  borderRadius: '50%',
-                  background: activeStep === i ? '#0054B1' : 'transparent',
-                  flexShrink: 0,
-                  transition: 'all 0.3s ease',
-                }} />
-              </motion.div>
-            ))}
-          </div>
-
-          {/* RIGHT — Sticky image + detail card */}
-          <div style={{ position: 'sticky', top: '110px' }}>
+        {/* Slider Container */}
+        <div className="flex justify-center w-full">
+          <div 
+            className="relative w-full max-w-4xl"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+          {/* Card Frame */}
+          <div className="relative bg-white rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,84,177,0.08)] border border-[#E5EAF0] aspect-auto md:aspect-[2/1] min-h-[440px]">
+            
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeStep}
-                initial={{ opacity: 0, y: 20, scale: 0.98 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -12, scale: 0.98 }}
-                transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                style={{
-                  background: '#fff',
-                  borderRadius: '24px',
-                  border: '1px solid #E5EAF0',
-                  overflow: 'hidden',
-                  boxShadow: '0 20px 60px rgba(0,84,177,0.08)',
-                }}
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -30 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="w-full flex flex-col md:flex-row absolute inset-0"
               >
-                {/* Image */}
-                <div style={{ position: 'relative', width: '100%', height: '280px', overflow: 'hidden' }}>
+                {/* Image Section */}
+                <div className="w-full md:w-1/2 h-64 md:h-full relative shrink-0">
                   <img
                     src={STEPS[activeStep].img}
                     alt={STEPS[activeStep].title}
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      objectFit: 'cover',
-                      display: 'block',
-                    }}
+                    className="w-full h-full object-cover"
                   />
-                  {/* Overlay gradient */}
-                  <div style={{
-                    position: 'absolute',
-                    inset: 0,
-                    background: 'linear-gradient(to bottom, transparent 40%, rgba(0,84,177,0.55) 100%)',
-                  }} />
-                  {/* Step badge on image */}
-                  <div style={{
-                    position: 'absolute',
-                    bottom: '20px',
-                    left: '24px',
-                    display: 'flex',
-                    alignItems: 'center',
-                    gap: '10px',
-                  }}>
-                    <div style={{
-                      width: '44px', height: '44px', borderRadius: '50%',
-                      background: '#fff',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      fontSize: '13px', fontWeight: 900, color: '#0054B1',
-                      boxShadow: '0 4px 16px rgba(0,0,0,0.2)',
-                    }}>
+                  <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/60 md:from-black/40 to-transparent" />
+                  
+                  {/* Step Badge Over Image */}
+                  <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center text-[15px] font-black text-[#0054B1] shadow-lg">
                       {STEPS[activeStep].num}
                     </div>
                     <div>
-                      <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.75)', marginBottom: '2px' }}>Step</p>
-                      <p style={{ fontSize: '15px', fontWeight: 800, color: '#fff' }}>{STEPS[activeStep].tag}</p>
+                      <p className="text-[11px] font-bold tracking-widest uppercase text-white/80 mb-0.5">Stage</p>
+                      <p className="text-[16px] font-extrabold text-white">{STEPS[activeStep].tag}</p>
                     </div>
                   </div>
                 </div>
 
-                {/* Text content */}
-                <div style={{ padding: '32px 36px 36px' }}>
-                  <p style={{ fontSize: '20px', fontWeight: 800, color: '#0A1628', marginBottom: '14px', lineHeight: 1.3 }}>
+                {/* Content Section */}
+                <div className="w-full md:w-1/2 h-full flex flex-col justify-center items-start p-8 md:p-12 lg:py-16 lg:px-20 bg-white overflow-y-auto">
+                  <h3 className="text-2xl md:text-[26px] font-black text-[#0A1628] mb-5 leading-tight text-left">
                     {STEPS[activeStep].title}
-                  </p>
-                  <p style={{ fontSize: '15px', color: '#6B7280', lineHeight: 1.8 }}>
+                  </h3>
+                  <p className="text-[15px] text-[#6B7280] leading-relaxed mb-4 text-left max-w-[400px]">
                     {STEPS[activeStep].desc}
                   </p>
-
-                  {/* Progress dots */}
-                  <div style={{ display: 'flex', gap: '8px', marginTop: '28px', alignItems: 'center' }}>
-                    {STEPS.map((_, i) => (
-                      <button
-                        key={i}
-                        onClick={() => setActiveStep(i)}
-                        style={{
-                          width: activeStep === i ? '28px' : '8px',
-                          height: '8px',
-                          borderRadius: '4px',
-                          background: activeStep === i ? '#0054B1' : '#D1D5DB',
-                          border: 'none',
-                          cursor: 'pointer',
-                          transition: 'all 0.3s ease',
-                          padding: 0,
-                        }}
-                      />
-                    ))}
-                  </div>
                 </div>
               </motion.div>
             </AnimatePresence>
+            
+          </div>
+
+          {/* Bottom Pagination Dots */}
+          <div className="flex justify-center gap-3 mt-12">
+            {STEPS.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveStep(index)}
+                className={`transition-all duration-300 rounded-full focus:outline-none ${
+                  activeStep === index 
+                    ? 'w-8 h-2.5 bg-[#0054B1]' 
+                    : 'w-2.5 h-2.5 bg-[#D1D5DB] hover:bg-[#9CA3AF]'
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
           </div>
         </div>
 
@@ -277,7 +165,7 @@ const HowItWorks = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          style={{ textAlign: 'center', marginTop: '64px' }}
+          style={{ textAlign: 'center', marginTop: '96px' }}
         >
           <p style={{ fontSize: '15px', color: '#6B7280', marginBottom: '20px' }}>
             Ready to start with a conversation that's actually useful?
@@ -285,6 +173,7 @@ const HowItWorks = () => {
           <motion.button
             whileHover={{ scale: 1.03, boxShadow: '0 6px 24px rgba(0,84,177,0.3)' }}
             whileTap={{ scale: 0.97 }}
+            onClick={onBookClick}
             style={{
               background: '#0054B1',
               color: '#fff',
@@ -299,6 +188,7 @@ const HowItWorks = () => {
             Book Your Discovery Call
           </motion.button>
         </motion.div>
+
       </div>
     </section>
   );

@@ -67,7 +67,7 @@ const WhyIncorvia = () => (
       >
         <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '16px' }}>Why Incorvia</p>
         <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 3.2rem)', fontWeight: 900, lineHeight: 1.1, color: '#0A1628', marginBottom: '20px' }}>
-          We Think Before<br />We <span style={{ color: '#0054B1' }}>Execute.</span>
+          1. About Us
         </h2>
         <p style={{ fontSize: '15px', color: '#6B7280', lineHeight: 1.75, maxWidth: '480px', marginBottom: '40px' }}>
           Incorvia was built for founders who want clarity, not just compliance. We simplify complexity — combining local knowledge with global standards to deliver structures that hold up under scrutiny.
@@ -133,9 +133,11 @@ const WhyIncorvia = () => (
             transition={{ duration: 1.2, delay: 0.8, ease: "backOut" }}
             style={{ position: 'absolute', bottom: '-24px', right: '-24px', width: '80px', height: '80px', borderRadius: '50%', background: '#0054B1', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 10px 40px rgba(0,84,177,0.35)' }}
           >
-            <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-              <path d="M18 4 L32 30 H4 Z" fill="white" />
-              <path d="M18 16 L24 28 H12 Z" fill="#0054B1" />
+            <svg width="48" height="48" viewBox="0 0 100 100" fill="white">
+              {/* Left Wedge Shard */}
+              <path d="M15 35 L48 68 L28 28 Z" />
+              {/* Right Arrow Shard */}
+              <path d="M42 78 L85 25 L65 25 L85 25 L85 45 Z" />
             </svg>
           </motion.div>
         </div>

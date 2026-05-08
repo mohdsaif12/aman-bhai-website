@@ -1,56 +1,84 @@
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { ChevronDown, Menu, X } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import Logo from './Logo';
 
 const navLinks = [
-  { id: 'services', label: 'Services',   href: '#services',    hasDropdown: true  },
-  { id: 'about', label: 'About Us',  href: '#about',        hasDropdown: false },
-  { id: 'how-it-works', label: 'How It Works', href: '#how-it-works', hasDropdown: false },
-  { id: 'testimonials', label: 'Our Clients', href: '#testimonials', hasDropdown: false },
-  { id: 'contact', label: 'Contact',   href: '#contact',      hasDropdown: false },
+  { id: 'home',      label: 'Home',       href: '/',           hasDropdown: false },
+  { id: 'about',     label: 'About Us',   href: '/about',      hasDropdown: false },
+  { id: 'services',  label: 'Services',   href: '/services',   hasDropdown: false },
+  { id: 'resources', label: 'Resources',  href: '/resources',  hasDropdown: false },
+  { id: 'contact',   label: 'Contact Us', href: '/contact',    hasDropdown: false },
 ];
 
 const Navbar = ({ onBookClick }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  // Track which section is currently on screen
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = ['home', 'services', 'about', 'how-it-works', 'testimonials', 'contact'];
-      let current = '';
-      
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const rect = el.getBoundingClientRect();
-          // If the top of the section is just past the header, or the section takes up the screen
-          if (rect.top <= 150 && rect.bottom >= 150) {
-            current = section;
+    const path = location.pathname;
+    if (path === '/') {
+      const handleScroll = () => {
+        const sections = ['home', 'authorities', 'testimonials'];
+        let current = 'home';
+        for (const section of sections) {
+          const el = document.getElementById(section);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= 150 && rect.bottom >= 150) current = section;
           }
         }
-      }
-      
-      if (current !== activeSection) {
         setActiveSection(current);
-      }
-    };
+      };
+      window.addEventListener('scroll', handleScroll, { passive: true });
+      handleScroll();
+      return () => window.removeEventListener('scroll', handleScroll);
+    } else {
+      // Map pathname to nav id
+      const map = { '/about': 'about', '/services': 'services', '/resources': 'resources', '/contact': 'contact' };
+      setActiveSection(map[path] || '');
+    }
+  }, [location.pathname]);
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    handleScroll(); // Trigger once on mount
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [activeSection]);
+  // Handle hash scrolling on page load or hash change
+  useEffect(() => {
+    if (location.hash) {
+      setTimeout(() => {
+        const el = document.getElementById(location.hash.substring(1));
+        if (el) {
+          const top = el.getBoundingClientRect().top + window.scrollY - 90;
+          window.scrollTo({ top, behavior: 'auto' });
+        }
+      }, 100);
+    }
+  }, [location.pathname, location.hash]);
 
-  // Instant scroll instead of smooth scroll
   const scrollTo = (e, href, id) => {
     e.preventDefault();
-    const el = document.querySelector(href);
-    if (el) {
-      // Offset by 90px (header height)
-      const top = el.getBoundingClientRect().top + window.scrollY - 90;
-      window.scrollTo({ top, behavior: 'auto' }); // 'auto' = instant jump
+    
+    const [path, hash] = href.split('#');
+    const targetPath = path || '/';
+
+    if (targetPath !== location.pathname) {
+      navigate(href);
       setActiveSection(id);
+      return;
     }
+
+    if (hash) {
+      const el = document.getElementById(hash);
+      if (el) {
+        // Offset by 90px (header height)
+        const top = el.getBoundingClientRect().top + window.scrollY - 90;
+        window.scrollTo({ top, behavior: 'auto' }); // 'auto' = instant jump
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: 'auto' });
+    }
+    setActiveSection(id);
   };
 
   return (
@@ -63,7 +91,7 @@ const Navbar = ({ onBookClick }) => {
       >
         {/* Col 1 — Logo */}
         <div>
-          <a href="#" onClick={e => scrollTo(e, '#home', 'home')} style={{ textDecoration: 'none' }}>
+          <a href="/" onClick={e => scrollTo(e, '/', 'home')} style={{ textDecoration: 'none' }}>
             <Logo />
           </a>
         </div>
@@ -71,7 +99,7 @@ const Navbar = ({ onBookClick }) => {
         {/* Col 2 — Nav Links */}
         <nav className="hidden lg:flex items-center gap-10">
           {navLinks.map((link) => {
-            const isActive = activeSection === link.id;
+            const isActive = activeSection === link.id || (location.pathname === '/about' && link.id === 'about');
             return (
               <a
                 key={link.id}
@@ -89,15 +117,8 @@ const Navbar = ({ onBookClick }) => {
           })}
         </nav>
 
-        {/* Col 3 — CTA */}
-        <div className="hidden lg:flex items-center justify-end">
-          <button
-            onClick={onBookClick}
-            className="font-semibold text-[#0054B1] rounded-xl transition-all duration-200 hover:bg-[#0054B1] hover:text-white"
-            style={{ fontSize: '15px', padding: '12px 24px', border: '2px solid #0054B1', cursor: 'pointer' }}
-          >
-            Book a Consultation
-          </button>
+        {/* Col 3 — Empty CTA space for layout balance */}
+        <div className="hidden lg:flex items-center justify-end w-[180px]">
         </div>
 
         {/* Mobile hamburger */}
@@ -112,7 +133,7 @@ const Navbar = ({ onBookClick }) => {
       {mobileOpen && (
         <div className="lg:hidden bg-white border-t border-gray-100 px-8 py-5 flex flex-col gap-5">
           {navLinks.map((link) => {
-            const isActive = activeSection === link.id;
+            const isActive = activeSection === link.id || (location.pathname === '/about' && link.id === 'about');
             return (
               <a
                 key={link.id}
@@ -125,13 +146,6 @@ const Navbar = ({ onBookClick }) => {
               </a>
             );
           })}
-          <button
-            onClick={() => { setMobileOpen(false); onBookClick(); }}
-            className="mt-1 font-semibold text-[#0054B1] rounded-xl hover:bg-[#0054B1] hover:text-white transition-all duration-200 w-full"
-            style={{ fontSize: '15px', padding: '12px 24px', border: '2px solid #0054B1', cursor: 'pointer' }}
-          >
-            Book a Consultation
-          </button>
         </div>
       )}
     </header>
