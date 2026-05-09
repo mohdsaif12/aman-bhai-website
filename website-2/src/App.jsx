@@ -10,7 +10,9 @@ import AboutPage from './pages/AboutPage';
 import ServicesPage from './pages/ServicesPage';
 import ResourcesPage from './pages/ResourcesPage';
 import ContactPage from './pages/ContactPage';
+import ServicesSection from './components/ServicesSection';
 import Footer from './components/Footer';
+import BusinessWithPurpose from './components/BusinessWithPurpose';
 
 function App() {
   const [popupOpen, setPopupOpen] = useState(false);
@@ -35,7 +37,9 @@ function App() {
         <Route path="/" element={
           <>
             <div id="home"><HeroSection onBookClick={() => setPopupOpen(true)} /></div>
+            <div id="services"><ServicesSection onBookClick={() => setPopupOpen(true)} /></div>
             <div id="why"><WhyDifferent variant="landing" /></div>
+            <div id="purpose"><BusinessWithPurpose /></div>
             <div id="authorities"><AuthoritiesSection /></div>
             <div id="testimonials"><TestimonialsSection /></div>
           </>

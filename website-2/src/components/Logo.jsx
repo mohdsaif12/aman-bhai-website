@@ -6,7 +6,7 @@ const Logo = () => {
       <img 
         src={logoMain} 
         alt="Incorvia Corporate Advisory" 
-        style={{ height: '64px', width: 'auto', objectFit: 'contain' }} 
+        style={{ height: '100px', width: 'auto', objectFit: 'contain' }} 
       />
     </div>
   );

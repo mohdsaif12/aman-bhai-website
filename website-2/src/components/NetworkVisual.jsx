@@ -1,4 +1,4 @@
-import { FileText, Landmark, PieChart, ShieldCheck, UserCheck } from 'lucide-react';
+import { MessageSquare, Building, Landmark, UserCheck, PieChart, Briefcase, Layers } from 'lucide-react';
 import dottedMap from '../assets/dotted-map.png';
 import { motion } from 'framer-motion';
 
@@ -6,44 +6,53 @@ import { motion } from 'framer-motion';
 // Coordinates are percentages of the container (500x500 viewBox mapped to %)
 const SERVICE_NODES = [
   {
-    id: 'company',
-    label: ['Company', 'Formation'],
-    icon: FileText,
-    // top-center-left
-    cx: 205, cy: 95,
-    delay: 0.2,
+    id: 'advisory',
+    label: ['Business', 'Advisory'],
+    icon: MessageSquare,
+    cx: 255, cy: 75,
+    delay: 0.1,
+  },
+  {
+    id: 'incorporation',
+    label: ['Business', 'Incorporation'],
+    icon: Building,
+    cx: 395, cy: 135,
+    delay: 0.3,
   },
   {
     id: 'banking',
-    label: ['Banking', 'Solutions'],
+    label: ['Banking &', 'Compliance'],
     icon: Landmark,
-    // top-right
-    cx: 390, cy: 85,
-    delay: 0.4,
-  },
-  {
-    id: 'accounting',
-    label: ['Accounting', '& Tax'],
-    icon: PieChart,
-    // mid-left
-    cx: 70, cy: 255,
-    delay: 0.6,
-  },
-  {
-    id: 'compliance',
-    label: ['Compliance', '& Legal'],
-    icon: ShieldCheck,
-    // mid-right
-    cx: 460, cy: 255,
-    delay: 0.8,
+    cx: 425, cy: 280,
+    delay: 0.5,
   },
   {
     id: 'visas',
-    label: ['Visas & PRO', 'Services'],
+    label: ['Golden Visa', '& Residency'],
     icon: UserCheck,
-    // bottom-center
-    cx: 255, cy: 430,
-    delay: 1.0,
+    cx: 345, cy: 415,
+    delay: 0.7,
+  },
+  {
+    id: 'tax',
+    label: ['Tax Advisory', '& Accounting'],
+    icon: PieChart,
+    cx: 165, cy: 415,
+    delay: 0.9,
+  },
+  {
+    id: 'pro',
+    label: ['Corporate &', 'PRO Services'],
+    icon: Briefcase,
+    cx: 85, cy: 280,
+    delay: 1.1,
+  },
+  {
+    id: 'holding',
+    label: ['Holding', 'Structures'],
+    icon: Layers,
+    cx: 115, cy: 135,
+    delay: 1.3,
   },
 ].map(node => ({
   ...node,
@@ -194,19 +203,14 @@ const NetworkVisual = () => {
           style={{ left: '50%', top: '50%' }}
         >
           <div
-            className="w-24 h-24 rounded-2xl flex items-center justify-center"
+            className="w-24 h-24 rounded-2xl flex items-center justify-center bg-white"
             style={{
-              background: '#0054B1',
-              boxShadow: '0 8px 32px rgba(0, 84, 177, 0.35), 0 0 0 6px rgba(0,84,177,0.1)',
+              boxShadow: '0 8px 32px rgba(0, 84, 177, 0.15), 0 0 0 6px rgba(0,84,177,0.05)',
+              border: '1.5px solid #4B9FF3'
             }}
           >
-            {/* Precise Geometric "V" Arrow Shards in center node */}
-            <svg width="52" height="52" viewBox="0 0 100 100" fill="white">
-              {/* Left Wedge Shard */}
-              <path d="M15 35 L48 68 L28 28 Z" />
-              {/* Right Arrow Shard */}
-              <path d="M42 78 L85 25 L65 25 L85 25 L85 45 Z" />
-            </svg>
+            {/* The V Logo Photo */}
+            <img src="/v-icon.png" alt="Incorvia" style={{ width: '52px', height: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} />
           </div>
         </motion.div>
 

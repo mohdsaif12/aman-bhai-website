@@ -4,81 +4,43 @@ const SERVICES = [
   {
     title: 'Business Advisory Services',
     desc: 'Before anything is filed, we think. We analyse your goals, your risk profile, your residency needs, and your growth trajectory — then we design a structure that serves all of them. This is where every Incorvia engagement begins.',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>
-      </svg>
-    ),
+    icon: <img src="/v-icon.png" alt="Incorvia" style={{ width: '28px', height: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} />,
     includes: ['Goal & risk profile analysis', 'Residency needs assessment', 'Growth trajectory planning'],
   },
   {
     title: 'Business Incorporation',
     desc: 'Free Zone, Mainland, and Offshore — we manage complete business setup across all major UAE jurisdictions. We don\'t just process paperwork. We ensure the entity you form is the right one for where you are going, not just where you are today.',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
-        <rect x="3" y="14" width="7" height="7" rx="1"/>
-        <path d="M14 14h2m0 0h3m-3 0v3m0-3v-2"/>
-      </svg>
-    ),
+    icon: <img src="/v-icon.png" alt="Incorvia" style={{ width: '28px', height: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} />,
     includes: ['Free Zone, Mainland & Offshore', 'Full jurisdiction management', 'Entity formation & registration'],
   },
   {
     title: 'Banking Support & Compliance',
     desc: 'Corporate account opening is one of the most underestimated challenges in the UAE. We prepare your documentation, position your entity correctly, and manage the full banking engagement — so approvals happen and accounts perform.',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <line x1="3" y1="22" x2="21" y2="22"/><line x1="6" y1="18" x2="6" y2="11"/>
-        <line x1="10" y1="18" x2="10" y2="11"/><line x1="14" y1="18" x2="14" y2="11"/>
-        <line x1="18" y1="18" x2="18" y2="11"/><polyline points="2 11 12 2 22 11"/>
-      </svg>
-    ),
+    icon: <img src="/v-icon.png" alt="Incorvia" style={{ width: '28px', height: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} />,
     includes: ['Documentation preparation', 'Entity profile positioning', 'End-to-end banking engagement'],
   },
   {
     title: 'Golden Visa & Residency',
     desc: 'UAE residency pathways for founders, investors, and high-net-worth individuals — structured, managed, and executed end to end. We handle the full process so you and your family are covered.',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="4" width="18" height="16" rx="2"/>
-        <circle cx="9" cy="10" r="2"/>
-        <path d="M15 8h2M15 12h2M5 16s1-2 4-2 4 2 4 2"/>
-      </svg>
-    ),
+    icon: <img src="/v-icon.png" alt="Incorvia" style={{ width: '28px', height: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} />,
     includes: ['Investor & founder visas', 'Golden Visa applications', 'Family & dependent coverage'],
   },
   {
     title: 'Tax Advisory & Accounting',
     desc: 'In partnership with our sister company, we provide UAE corporate tax advisory, VAT compliance, and accounting services — fully integrated with your structure from day one. No gaps. No misalignment between your entity and your books.',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="5" y="2" width="14" height="20" rx="2"/>
-        <line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/>
-        <line x1="9" y1="15" x2="12" y2="15"/>
-      </svg>
-    ),
+    icon: <img src="/v-icon.png" alt="Incorvia" style={{ width: '28px', height: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} />,
     includes: ['Corporate tax advisory', 'VAT compliance', 'Accounting & bookkeeping'],
   },
   {
     title: 'Corporate & PRO Services — Government Liaison',
     desc: 'Visa applications, Emirates ID, licence renewals, trade name registrations, notarisations, attestations — every interaction with UAE government authorities, managed professionally and without delay.',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        <polyline points="9 12 11 14 15 10"/>
-      </svg>
-    ),
+    icon: <img src="/v-icon.png" alt="Incorvia" style={{ width: '28px', height: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} />,
     includes: ['Visa & Emirates ID processing', 'Licence renewals & amendments', 'Notarisations & attestations'],
   },
   {
     title: 'Holding Structures',
     desc: 'For investors, HNWIs, and businesses with multi-entity or cross-border complexity — we design ownership structures that protect assets, optimise for tax efficiency, and position you for long-term growth.',
-    icon: (
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-        <polyline points="9 22 9 12 15 12 15 22"/>
-      </svg>
-    ),
+    icon: <img src="/v-icon.png" alt="Incorvia" style={{ width: '28px', height: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} />,
     includes: ['Multi-entity structuring', 'Asset protection planning', 'Cross-border optimisation'],
   },
 ];

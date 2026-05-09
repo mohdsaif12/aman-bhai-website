@@ -2,26 +2,64 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import local authority logos
-import dubaiDetLogo from '../assets/authorities/dubai_det.png';
-import adgmLogo from '../assets/authorities/adgm.png';
-import difcLogo from '../assets/authorities/difc.png';
-import dmccLogo from '../assets/authorities/dmcc.png';
-import jafzaLogo from '../assets/authorities/jafza.png';
-import ifzaLogo from '../assets/authorities/ifza.png';
-import meydanLogo from '../assets/authorities/meydan.png';
-import rakezLogo from '../assets/authorities/rakez.png';
 import addedLogo from '../assets/authorities/added.png';
+import adgmLogo from '../assets/authorities/adgm.png';
+import ajmanDedLogo from '../assets/authorities/ajman ded.png';
+import d3Logo from '../assets/authorities/D3.png';
+import dafzaLogo from '../assets/authorities/DAFZA.png';
+import detLogo from '../assets/authorities/DET.jpg';
+import diacLogo from '../assets/authorities/DIAC.png';
+import dicLogo from '../assets/authorities/DIC.jpg';
+import difcLogo from '../assets/authorities/difc.png';
+import dkpLogo from '../assets/authorities/DKP.png';
+import dmccLogo from '../assets/authorities/dmcc.png';
+import dsoLogo from '../assets/authorities/DSO.jpg';
+import dubaiSouthLogo from '../assets/authorities/DUBAI SOUTH.png';
+import ffzLogo from '../assets/authorities/FFZ.jpg';
+import fujairahDedLogo from '../assets/authorities/FUJAIRAH DED.jpg';
+import ifzaLogo from '../assets/authorities/ifza.png';
+import jafzaLogo from '../assets/authorities/jafza.png';
+import kizadLogo from '../assets/authorities/KIZAD.png';
+import meydanLogo from '../assets/authorities/MEYDEN.jpg';
+import rakDedLogo from '../assets/authorities/RAK DED.jpg';
+import rakIccLogo from '../assets/authorities/RAK ICC.png';
+import rakezLogo from '../assets/authorities/rakez.png';
+import sedLogo from '../assets/authorities/SED.jpg';
+import shamsLogo from '../assets/authorities/SHAMS.png';
+import srtipLogo from '../assets/authorities/SRTIP.jpg';
+import twofour54Logo from '../assets/authorities/TWOFOUR54.png';
+import uaqDedLogo from '../assets/authorities/UAQ DED.png';
+import uaqFtzLogo from '../assets/authorities/UAQ FTZ.png';
 
 const LOGO_MAP = {
-  'det.gov.ae': dubaiDetLogo,
+  'det.gov.ae': detLogo,
   'added.gov.ae': addedLogo,
-  'adgm.com': adgmLogo,
-  'difc.ae': difcLogo,
+  'sedd.ae': sedLogo,
+  'ajmanded.gov.ae': ajmanDedLogo,
+  'ded.rak.ae': rakDedLogo,
+  'uaqded.gov.ae': uaqDedLogo,
+  'fujded.gov.ae': fujairahDedLogo,
   'dmcc.ae': dmccLogo,
+  'difc.ae': difcLogo,
+  'adgm.com': adgmLogo,
   'jafza.ae': jafzaLogo,
-  'ifza.ae': ifzaLogo,
+  'dafza.ae': dafzaLogo,
   'meydan.ae': meydanLogo,
+  'dsoa.ae': dsoLogo,
+  'dubaisouth.ae': dubaiSouthLogo,
+  'dic.ae': dicLogo,
+  'd3.ae': d3Logo,
+  'ifza.ae': ifzaLogo,
   'rakez.com': rakezLogo,
+  'shamsfreezone.com': shamsLogo,
+  'fujairahfreezone.ae': ffzLogo,
+  'uaqftz.ae': uaqFtzLogo,
+  'diac.ae': diacLogo,
+  'kp.ae': dkpLogo,
+  'srtip.ae': srtipLogo,
+  'twofour54.com': twofour54Logo,
+  'kizad.ae': kizadLogo,
+  'rakia.ae': rakIccLogo,
 };
 
 const CATEGORIES = [
@@ -139,14 +177,13 @@ const LogoCard = ({ auth, accent }) => {
       transition={{ duration: 0.3 }}
       title={auth.full}
       style={{
-        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
-        width: '180px', height: '120px', padding: '20px 16px',
+        display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'space-between',
+        width: '180px', height: '140px', padding: '24px 16px',
         background: '#fff', borderRadius: '18px',
         border: '1px solid #F1F5F9',
         boxShadow: '0 4px 16px rgba(0,0,0,0.03)',
         flexShrink: 0, cursor: 'default',
         transition: 'all 0.25s ease',
-        gap: '10px',
       }}
       onMouseEnter={e => {
         e.currentTarget.style.borderColor = accent;
@@ -159,25 +196,36 @@ const LogoCard = ({ auth, accent }) => {
         e.currentTarget.style.boxShadow = '0 4px 16px rgba(0,0,0,0.03)';
       }}
     >
-      {!imgFailed ? (
-        <img
-          src={logoUrl}
-          alt={auth.name}
-          onError={() => setImgFailed(true)}
-          style={{ maxWidth: '130px', maxHeight: '70px', objectFit: 'contain' }}
-        />
-      ) : (
-        <div style={{
-          width: '64px', height: '44px', borderRadius: '10px',
-          background: `${accent}12`,
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          fontSize: '14px', fontWeight: 800, color: accent, letterSpacing: '0.04em',
-          textAlign: 'center', padding: '4px',
-        }}>
-          {auth.abbr}
-        </div>
-      )}
-      <p style={{ fontSize: '12px', fontWeight: 700, color: '#374151', textAlign: 'center', lineHeight: 1.2 }}>
+      <div style={{ 
+        width: '100%', height: '60px', 
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        marginBottom: '12px'
+      }}>
+        {!imgFailed ? (
+          <img
+            src={logoUrl}
+            alt={auth.name}
+            onError={() => setImgFailed(true)}
+            style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'contain' }}
+          />
+        ) : (
+          <div style={{
+            width: '64px', height: '44px', borderRadius: '10px',
+            background: `${accent}12`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontSize: '14px', fontWeight: 800, color: accent, letterSpacing: '0.04em',
+            textAlign: 'center', padding: '4px',
+          }}>
+            {auth.abbr}
+          </div>
+        )}
+      </div>
+      <p style={{ 
+        fontSize: '12px', fontWeight: 700, color: '#374151', 
+        textAlign: 'center', lineHeight: 1.3,
+        width: '100%', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical',
+        overflow: 'hidden', height: '32px'
+      }}>
         {auth.name}
       </p>
     </motion.div>

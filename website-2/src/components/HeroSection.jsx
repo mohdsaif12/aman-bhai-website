@@ -48,17 +48,17 @@ const HeroSection = ({ onBookClick }) => {
   const navigate = useNavigate();
 
   return (
-    <section className="w-full bg-white overflow-hidden pt-[100px]">
+    <section className="w-full bg-white overflow-hidden pt-[20px]">
       <div
         className="container-custom grid grid-cols-1 lg:grid-cols-2 items-center"
         style={{
-          minHeight: 'calc(100vh - 100px)',
+          minHeight: 'calc(100vh - 120px)',
           gap: '40px',
         }}
       >
 
         {/* ── LEFT: Text Content ── */}
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: 'clamp(60px, 12vh, 140px)', paddingBottom: 'clamp(40px, 10vh, 100px)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: 'clamp(20px, 8vh, 60px)', paddingBottom: 'clamp(40px, 10vh, 100px)' }}>
 
           {/* Eyebrow */}
           <motion.p

@@ -62,12 +62,10 @@ const AboutFounder = () => {
             <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
               <div style={{
                 width: '56px', height: '56px', borderRadius: '50%',
-                background: '#0054B1', display: 'flex', alignItems: 'center',
-                justifyContent: 'center', flexShrink: 0
+                overflow: 'hidden', flexShrink: 0,
+                border: '2px solid #0054B1'
               }}>
-                <svg viewBox="0 0 24 24" fill="none" style={{ width: '28px', height: '28px' }}>
-                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" stroke="#fff" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+                <img src="/ownerpicture.jpeg" alt="Aman Khan" style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'right top' }} />
               </div>
               <div>
                 <h4 style={{ fontSize: '18px', fontWeight: 800, color: '#0A1628', marginBottom: '2px' }}>Aman Khan</h4>
@@ -90,29 +88,47 @@ const AboutFounder = () => {
               borderRadius: '24px',
               overflow: 'hidden',
               position: 'relative',
-              background: 'linear-gradient(145deg, #0A1628 0%, #0054B1 100%)',
+              background: '#E5EAF0',
+              boxShadow: '0 24px 80px rgba(0, 84, 177, 0.15)'
             }}>
-              {/* Pattern overlay */}
-              <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', opacity: 0.06 }} viewBox="0 0 400 500" fill="none">
-                <circle cx="200" cy="250" r="200" stroke="white" strokeWidth="1"/>
-                <circle cx="200" cy="250" r="150" stroke="white" strokeWidth="1"/>
-                <circle cx="200" cy="250" r="100" stroke="white" strokeWidth="1"/>
-                <circle cx="200" cy="250" r="50" stroke="white" strokeWidth="1"/>
-              </svg>
+              {/* Full Bleed Image */}
+              <img 
+                src="/ownerpicture.jpeg" 
+                alt="Aman Khan" 
+                style={{ 
+                  position: 'absolute', 
+                  inset: 0, 
+                  width: '100%', 
+                  height: '100%', 
+                  objectFit: 'cover', 
+                  objectPosition: 'center 15%' 
+                }} 
+              />
+              
+              {/* Premium Gradient Overlay */}
+              <div style={{ 
+                position: 'absolute', 
+                inset: 0, 
+                background: 'linear-gradient(to top, rgba(10,22,40,0.95) 0%, rgba(10,22,40,0.6) 35%, transparent 65%)' 
+              }} />
 
-              {/* Centered content */}
-              <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '40px', textAlign: 'center' }}>
-                <div style={{ width: '100px', height: '100px', borderRadius: '50%', background: 'rgba(255,255,255,0.12)', border: '2px solid rgba(255,255,255,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '24px' }}>
-                  <svg viewBox="0 0 24 24" fill="none" style={{ width: '48px', height: '48px' }}>
-                    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2M12 11a4 4 0 100-8 4 4 0 000 8z" stroke="rgba(255,255,255,0.8)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </div>
-                <h3 style={{ fontSize: '26px', fontWeight: 900, color: '#fff', marginBottom: '8px' }}>Aman Khan</h3>
-                <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.65)', marginBottom: '32px' }}>Founder & Principal Advisor</p>
+              {/* Bottom aligned content */}
+              <div style={{ 
+                position: 'absolute', 
+                inset: 0, 
+                display: 'flex', 
+                flexDirection: 'column', 
+                alignItems: 'center', 
+                justifyContent: 'flex-end', 
+                padding: '40px', 
+                textAlign: 'center' 
+              }}>
+                <h3 style={{ fontSize: '28px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>Aman Khan</h3>
+                <p style={{ fontSize: '15px', color: '#4B9FF3', fontWeight: 600, marginBottom: '24px' }}>Founder & Principal Advisor</p>
 
                 {/* Quote */}
-                <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '28px', width: '100%' }}>
-                  <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.8)', lineHeight: 1.8, fontStyle: 'italic' }}>
+                <div style={{ borderTop: '1px solid rgba(255,255,255,0.15)', paddingTop: '24px', width: '100%' }}>
+                  <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.9)', lineHeight: 1.7, fontStyle: 'italic' }}>
                     "Helping entrepreneurs establish with confidence and scale with clarity in one of the world's most dynamic business environments."
                   </p>
                 </div>

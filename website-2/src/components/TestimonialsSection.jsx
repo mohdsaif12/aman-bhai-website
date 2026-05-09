@@ -46,39 +46,18 @@ const TestimonialsSection = () => {
       {/* Infinite Marquee Container */}
       <div style={{ position: 'relative', width: '100%', height: '240px', display: 'flex', alignItems: 'center', overflow: 'hidden' }}>
 
-        {/* Track 1: Grayscale (Base) */}
+        {/* Single Track: Colored Logos */}
         <motion.div
           animate={{ x: ['0%', '-50%'] }}
           transition={{
             x: { repeat: Infinity, repeatType: 'loop', duration: 50, ease: 'linear' },
           }}
           style={{ 
-            display: 'flex', width: 'max-content', position: 'absolute', left: 0, top: 0, bottom: 0, alignItems: 'center',
-            opacity: 0.7, filter: 'grayscale(100%)' 
+            display: 'flex', width: 'max-content', position: 'absolute', left: 0, top: 0, bottom: 0, alignItems: 'center'
           }}
         >
           {infiniteLogos.map((logo, i) => (
-            <div key={`gray-${i}`} style={{ width: '360px', margin: '0 80px', flexShrink: 0, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <img src={`/clients/${logo.file}`} alt="" style={{ height: '130px', maxWidth: '100%', objectFit: 'contain' }} />
-            </div>
-          ))}
-        </motion.div>
-
-        {/* Track 2: Colored (Masked to Center) */}
-        <motion.div
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{
-            x: { repeat: Infinity, repeatType: 'loop', duration: 50, ease: 'linear' },
-          }}
-          style={{ 
-            display: 'flex', width: 'max-content', position: 'absolute', left: 0, top: 0, bottom: 0, alignItems: 'center',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 15%, black 30%, black 70%, transparent 85%)',
-            maskImage: 'linear-gradient(to right, transparent 15%, black 30%, black 70%, transparent 85%)',
-            zIndex: 5
-          }}
-        >
-          {infiniteLogos.map((logo, i) => (
-            <div key={`color-${i}`} style={{ width: '360px', margin: '0 80px', flexShrink: 0, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <div key={`logo-${i}`} style={{ width: '360px', margin: '0 80px', flexShrink: 0, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <img src={`/clients/${logo.file}`} alt="" style={{ height: '130px', maxWidth: '100%', objectFit: 'contain' }} />
             </div>
           ))}

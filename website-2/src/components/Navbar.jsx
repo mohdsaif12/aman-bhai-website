@@ -86,7 +86,7 @@ const Navbar = ({ onBookClick }) => {
       <div
         className="container-custom flex items-center justify-between"
         style={{
-          height: '100px',
+          height: '120px',
         }}
       >
         {/* Col 1 — Logo */}
