@@ -80,7 +80,7 @@ const CATEGORIES = [
   },
   {
     id: 'tier1',
-    label: 'Tier 1 — Premium',
+    label: 'Premium Free Zone',
     icon: '🏙️',
     desc: 'High-Prestige Free Zones',
     tip: 'Best for credibility, banking strength & investor appeal.',
@@ -94,7 +94,7 @@ const CATEGORIES = [
   },
   {
     id: 'tier2',
-    label: 'Tier 2 — Strategic',
+    label: 'Strategic Free Zone',
     icon: '🚀',
     desc: 'Strategic Dubai Free Zones',
     tip: 'Dubai presence + cost efficiency.',
@@ -109,7 +109,7 @@ const CATEGORIES = [
   },
   {
     id: 'tier3',
-    label: 'Tier 3 — Cost-Effective',
+    label: 'Cost-Effective Free Zone',
     icon: '💼',
     desc: 'High-Volume Free Zones',
     tip: 'Ideal for startups, solo founders & international clients.',
@@ -213,7 +213,7 @@ const LogoCard = ({ auth, accent }) => {
             width: '64px', height: '44px', borderRadius: '10px',
             background: `${accent}12`,
             display: 'flex', alignItems: 'center', justifyContent: 'center',
-            fontSize: '14px', fontWeight: 800, color: accent, letterSpacing: '0.04em',
+            fontSize: '16px', fontWeight: 800, color: accent, letterSpacing: '0.04em',
             textAlign: 'center', padding: '4px',
           }}>
             {auth.abbr}
@@ -221,7 +221,7 @@ const LogoCard = ({ auth, accent }) => {
         )}
       </div>
       <p style={{ 
-        fontSize: '12px', fontWeight: 700, color: '#374151', 
+        fontSize: '16px', fontWeight: 700, color: '#374151', 
         textAlign: 'center', lineHeight: 1.3,
         width: '100%', display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical',
         overflow: 'hidden', height: '32px'
@@ -238,7 +238,7 @@ const AuthoritiesSection = () => {
   const accent = CAT_COLORS[activeTab];
 
   return (
-    <section style={{ background: 'transparent', padding: 'clamp(60px, 10vh, 100px) 0', overflow: 'hidden' }}>
+    <section style={{ background: 'transparent', padding: 'clamp(30px, 5vh, 60px) 0', overflow: 'hidden' }}>
       <div className="container-custom">
 
         {/* Header */}
@@ -249,7 +249,7 @@ const AuthoritiesSection = () => {
           transition={{ duration: 0.7 }}
           style={{ textAlign: 'center', marginBottom: '48px' }}
         >
-          <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '10px' }}>
+          <p style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '10px' }}>
             Authorities We Work With
           </p>
           <div style={{ width: '32px', height: '2px', background: '#0054B1', margin: '0 auto 20px' }} />
@@ -268,7 +268,7 @@ const AuthoritiesSection = () => {
               key={cat.id}
               onClick={() => setActiveTab(cat.id)}
               style={{
-                padding: '8px 18px', borderRadius: '100px', fontSize: '13px',
+                padding: '8px 18px', borderRadius: '100px', fontSize: '15px',
                 fontWeight: 600, border: '1.5px solid',
                 cursor: 'pointer', transition: 'all 0.2s ease',
                 borderColor: activeTab === cat.id ? CAT_COLORS[cat.id] : '#E5EAF0',
@@ -297,12 +297,12 @@ const AuthoritiesSection = () => {
                 padding: '8px 16px', marginBottom: '28px',
                 border: `1px solid ${accent}25`,
               }}>
-                <span style={{ fontSize: '13px', color: accent, fontWeight: 600 }}>💡 {activeCategory.tip}</span>
+                <span style={{ fontSize: '15px', color: accent, fontWeight: 600 }}>💡 {activeCategory.tip}</span>
               </div>
             )}
 
             {/* Logo Grid */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', justifyContent: 'center' }}>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', justifyContent: 'center', maxWidth: '800px', margin: '0 auto' }}>
               {activeCategory.authorities.map(auth => (
                 <LogoCard key={auth.name} auth={auth} accent={accent} />
               ))}
@@ -319,7 +319,7 @@ const AuthoritiesSection = () => {
           ].map(stat => (
             <div key={stat.label} style={{ textAlign: 'center' }}>
               <p style={{ fontSize: '26px', fontWeight: 900, color: '#0054B1', lineHeight: 1 }}>{stat.num}</p>
-              <p style={{ fontSize: '12px', fontWeight: 600, color: '#9CA3AF', marginTop: '4px' }}>{stat.label}</p>
+              <p style={{ fontSize: '16px', fontWeight: 600, color: '#9CA3AF', marginTop: '4px' }}>{stat.label}</p>
             </div>
           ))}
         </div>

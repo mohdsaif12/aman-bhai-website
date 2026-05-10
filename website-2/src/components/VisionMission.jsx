@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const VisionMission = () => {
   return (
     <section style={{
-      padding: 'clamp(60px, 10vh, 120px) 0',
+      padding: 'clamp(30px, 5vh, 60px) 0',
       background: 'transparent',
       position: 'relative',
       zIndex: 10
@@ -18,7 +18,7 @@ const VisionMission = () => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           style={{ marginBottom: '40px' }}
         >
-          <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '14px' }}>
+          <p style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '14px' }}>
             Vision &amp; Mission
           </p>
           <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 900, lineHeight: 1.1, color: '#0A1628', marginBottom: '0' }}>
@@ -51,10 +51,10 @@ const VisionMission = () => {
             <div style={{ position: 'absolute', bottom: '-60px', right: '-60px', width: '200px', height: '200px', borderRadius: '50%', border: '1px solid rgba(255,255,255,0.06)', pointerEvents: 'none' }} />
             <div style={{ position: 'absolute', bottom: '-30px', right: '-30px', width: '130px', height: '130px', borderRadius: '50%', border: '1px solid rgba(255,255,255,0.05)', pointerEvents: 'none' }} />
 
-            <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: '48px' }}>
+            <p style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.5)', marginBottom: '48px' }}>
               Our Vision
             </p>
-            <p style={{ fontSize: 'clamp(15px, 1.6vw, 18px)', color: 'rgba(255,255,255,0.88)', lineHeight: 1.85, fontStyle: 'italic', flex: 1, marginTop: 'auto' }}>
+            <p style={{ fontSize: 'clamp(15px, 1.6vw, 18px)', color: 'rgba(255,255,255,0.88)', lineHeight: 1.85, fontStyle: 'italic', flex: 1, marginTop: 'auto', textAlign: 'justify' }}>
               To be the most trusted corporate advisory firm in the UAE — known not for the volume of businesses we set up, but for the quality of structures we build and the long-term success of the clients we serve.
             </p>
           </motion.div>
@@ -76,10 +76,10 @@ const VisionMission = () => {
               overflow: 'hidden',
             }}
           >
-            <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '48px' }}>
+            <p style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '48px' }}>
               Our Mission
             </p>
-            <p style={{ fontSize: 'clamp(15px, 1.6vw, 18px)', color: '#1D3A5F', lineHeight: 1.85, flex: 1, marginTop: 'auto' }}>
+            <p style={{ fontSize: 'clamp(15px, 1.6vw, 18px)', color: '#1D3A5F', lineHeight: 1.85, flex: 1, marginTop: 'auto', textAlign: 'justify' }}>
               To provide founders, investors, and established businesses with the strategic clarity and precise execution they need to build in the UAE with confidence. We combine deep regulatory knowledge with genuine advisory thinking — so every client leaves with a structure that is right for their business, not just compliant on paper.
             </p>
           </motion.div>

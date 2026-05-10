@@ -184,7 +184,7 @@ const NetworkVisual = () => {
                   <span
                     key={li}
                     className="text-center font-medium text-gray-700 leading-tight"
-                    style={{ fontSize: '12px' }}
+                    style={{ fontSize: '16px' }}
                   >
                     {line}
                   </span>
@@ -194,7 +194,7 @@ const NetworkVisual = () => {
           );
         })}
 
-        {/* Center Node — INCORVIA Core */}
+        {/* Center Node — Incorvia Core */}
         <motion.div
           initial={{ opacity: 0, scale: 0.7 }}
           animate={{ opacity: 1, scale: 1 }}

@@ -79,7 +79,7 @@ const ContactPage = () => {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="text-center mb-16"
         >
-          <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '10px' }}>
+          <p style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '10px' }}>
             Get In Touch
           </p>
           <div style={{ width: '32px', height: '2px', background: '#0054B1', margin: '0 auto 20px' }} />
@@ -104,7 +104,7 @@ const ContactPage = () => {
             >
               {[
                 { label: 'Location', value: 'GF24, Al Fahad Building, Dubai', icon: '📍' },
-                { label: 'Email', value: 'advisory@incorvia.ae', icon: '📧' },
+                { label: 'Email', value: 'advisory@Incorvia.ae', icon: '📧' },
                 { label: 'Office Hours', value: 'Mon–Fri: 9AM – 6PM GST', icon: '🕐' },
               ].map(item => (
                 <div key={item.label} style={{ display: 'flex', alignItems: 'flex-start', gap: '16px' }}>
@@ -112,7 +112,7 @@ const ContactPage = () => {
                     {item.icon}
                   </div>
                   <div>
-                    <p style={{ fontSize: '12px', color: '#9CA3AF', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px' }}>{item.label}</p>
+                    <p style={{ fontSize: '16px', color: '#9CA3AF', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.1em', marginBottom: '4px' }}>{item.label}</p>
                     <p style={{ fontSize: '16px', fontWeight: 600, color: '#0A1628' }}>{item.value}</p>
                   </div>
                 </div>
@@ -132,7 +132,7 @@ const ContactPage = () => {
                 
                 {/* Name */}
                 <div className="md:col-span-1">
-                  <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>Full Name</label>
+                  <label style={{ display: 'block', fontSize: '15px', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>Full Name</label>
                   <input type="text" name="name" value={form.name} onChange={handleChange} placeholder="John Smith" required
                     style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #E5EAF0', fontSize: '15px', color: '#0A1628', outline: 'none', boxSizing: 'border-box' }}
                   />
@@ -140,7 +140,7 @@ const ContactPage = () => {
 
                 {/* Email */}
                 <div className="md:col-span-1">
-                  <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>Email Address</label>
+                  <label style={{ display: 'block', fontSize: '15px', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>Email Address</label>
                   <input type="email" name="email" value={form.email} onChange={handleChange} placeholder="john@company.com" required
                     style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #E5EAF0', fontSize: '15px', color: '#0A1628', outline: 'none', boxSizing: 'border-box' }}
                   />
@@ -148,7 +148,7 @@ const ContactPage = () => {
 
                 {/* Phone */}
                 <div className="md:col-span-1">
-                  <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>Phone Number</label>
+                  <label style={{ display: 'block', fontSize: '15px', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>Phone Number</label>
                   <input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="+971 5X XXX XXXX" required
                     style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #E5EAF0', fontSize: '15px', color: '#0A1628', outline: 'none', boxSizing: 'border-box' }}
                   />
@@ -156,7 +156,7 @@ const ContactPage = () => {
 
                 {/* Company */}
                 <div className="md:col-span-1">
-                  <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>Company / Business</label>
+                  <label style={{ display: 'block', fontSize: '15px', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>Company / Business</label>
                   <input type="text" name="company" value={form.company} onChange={handleChange} placeholder="Your company name" required
                     style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #E5EAF0', fontSize: '15px', color: '#0A1628', outline: 'none', boxSizing: 'border-box' }}
                   />
@@ -164,7 +164,7 @@ const ContactPage = () => {
 
                 {/* Service Dropdown */}
                 <div className="md:col-span-1">
-                  <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>Service of Interest</label>
+                  <label style={{ display: 'block', fontSize: '15px', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>Service of Interest</label>
                   <select name="service" value={form.service} onChange={handleChange} required
                     style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #E5EAF0', fontSize: '15px', color: '#0A1628', outline: 'none', boxSizing: 'border-box', background: '#fff' }}
                   >
@@ -175,7 +175,7 @@ const ContactPage = () => {
 
                 {/* Process / Stage Dropdown */}
                 <div className="md:col-span-1">
-                  <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>Where are you in the process?</label>
+                  <label style={{ display: 'block', fontSize: '15px', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>Where are you in the process?</label>
                   <select name="process" value={form.process} onChange={handleChange} required
                     style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #E5EAF0', fontSize: '15px', color: '#0A1628', outline: 'none', boxSizing: 'border-box', background: '#fff' }}
                   >
@@ -186,7 +186,7 @@ const ContactPage = () => {
 
                 {/* Message */}
                 <div className="md:col-span-2">
-                  <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>How can we help?</label>
+                  <label style={{ display: 'block', fontSize: '15px', fontWeight: 600, color: '#374151', marginBottom: '8px' }}>How can we help?</label>
                   <textarea name="message" value={form.message} onChange={handleChange} placeholder="Tell us briefly about your business and what you're looking to achieve..." required rows={4}
                     style={{ width: '100%', padding: '12px 16px', borderRadius: '10px', border: '1px solid #E5EAF0', fontSize: '15px', color: '#0A1628', outline: 'none', resize: 'vertical', boxSizing: 'border-box', fontFamily: 'inherit' }}
                   />

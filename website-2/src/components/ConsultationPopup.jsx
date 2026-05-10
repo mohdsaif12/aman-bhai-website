@@ -79,7 +79,7 @@ const ConsultationPopup = ({ isOpen, onClose }) => {
 *Message / Goals:* ${form.message || 'Not provided'}
 
 —
-Submitted via incorvia.ae`
+Submitted via Incorvia.ae`
     );
     const phone = '971582581214';
     window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
@@ -120,7 +120,7 @@ Submitted via incorvia.ae`
               onClick={(e) => e.stopPropagation()} // Prevent clicks inside from closing
               style={{
                 width: '100%',
-                maxWidth: '560px',
+                maxWidth: '480px',
                 maxHeight: '90vh',
                 overflowY: 'auto',
                 background: '#fff',
@@ -133,7 +133,7 @@ Submitted via incorvia.ae`
               <div style={{
                 background: 'linear-gradient(135deg, #0054B1 0%, #1A6FD4 100%)',
                 borderRadius: '24px 24px 0 0',
-                padding: '32px 36px 28px',
+                padding: '24px 28px 24px',
                 position: 'relative',
               }}>
                 <button
@@ -151,19 +151,19 @@ Submitted via incorvia.ae`
                   <X size={16} />
                 </button>
 
-                <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', marginBottom: '8px' }}>
-                  Incorvia Corporate Advisory
+                <p style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.7)', marginBottom: '8px' }}>
+                  Incorvia
                 </p>
                 <h2 style={{ fontSize: '26px', fontWeight: 900, color: '#fff', lineHeight: 1.2, marginBottom: '8px' }}>
                   Book a Discovery Call
                 </h2>
-                <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.6 }}>
+                <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.75)', lineHeight: 1.6 }}>
                   No pitching, no pressure. Just a focused conversation about whether we're the right fit for your business.
                 </p>
               </div>
 
               {/* Form body */}
-              <div style={{ padding: '32px 36px 36px' }}>
+              <div style={{ padding: '24px 28px 28px' }}>
                 {status === 'success' ? (
                   <motion.div
                     initial={{ opacity: 0, y: 12 }}
@@ -194,7 +194,7 @@ Submitted via incorvia.ae`
                         onClick={handleClose}
                         style={{
                           background: 'transparent', color: '#6B7280', fontWeight: 600,
-                          fontSize: '14px', padding: '12px 28px',
+                          fontSize: '16px', padding: '12px 28px',
                           borderRadius: '10px', border: '1.5px solid #E5EAF0', cursor: 'pointer',
                         }}
                       >
@@ -227,10 +227,10 @@ Submitted via incorvia.ae`
                     </button>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+                  <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
                     {/* Full Name */}
                     <div>
-                      <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>
+                      <label style={{ display: 'block', fontSize: '15px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>
                         Full Name <span style={{ color: '#EF4444' }}>*</span>
                       </label>
                       <input
@@ -249,7 +249,7 @@ Submitted via incorvia.ae`
 
                     {/* Email */}
                     <div>
-                      <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>
+                      <label style={{ display: 'block', fontSize: '15px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>
                         Email Address <span style={{ color: '#EF4444' }}>*</span>
                       </label>
                       <input
@@ -268,7 +268,7 @@ Submitted via incorvia.ae`
 
                     {/* Phone */}
                     <div>
-                      <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>
+                      <label style={{ display: 'block', fontSize: '15px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>
                         Phone Number <span style={{ color: '#EF4444' }}>*</span>
                       </label>
                       <input
@@ -287,7 +287,7 @@ Submitted via incorvia.ae`
 
                     {/* Service of Interest */}
                     <div>
-                      <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>
+                      <label style={{ display: 'block', fontSize: '15px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>
                         Service of Interest <span style={{ color: '#EF4444' }}>*</span>
                       </label>
                       <select
@@ -310,7 +310,7 @@ Submitted via incorvia.ae`
 
                     {/* Where are you */}
                     <div>
-                      <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>
+                      <label style={{ display: 'block', fontSize: '15px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>
                         Where are you in the process? <span style={{ color: '#EF4444' }}>*</span>
                       </label>
                       <select
@@ -333,7 +333,7 @@ Submitted via incorvia.ae`
 
                     {/* Message */}
                     <div>
-                      <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>
+                      <label style={{ display: 'block', fontSize: '15px', fontWeight: 600, color: '#374151', marginBottom: '6px' }}>
                         What would you like to discuss? <span style={{ color: '#9CA3AF', fontWeight: 400 }}>(optional)</span>
                       </label>
                       <textarea
@@ -376,7 +376,7 @@ Submitted via incorvia.ae`
                       ) : 'Request a Discovery Call →'}
                     </motion.button>
 
-                    <p style={{ fontSize: '12px', color: '#9CA3AF', textAlign: 'center', lineHeight: 1.6 }}>
+                    <p style={{ fontSize: '16px', color: '#9CA3AF', textAlign: 'center', lineHeight: 1.6 }}>
                       We respond within one business day. Your information is kept strictly confidential.
                     </p>
                   </form>

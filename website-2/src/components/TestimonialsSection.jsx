@@ -23,7 +23,7 @@ const TestimonialsSection = () => {
 
 
   return (
-    <section style={{ background: 'transparent', padding: 'clamp(60px, 10vh, 100px) 0', overflow: 'hidden', position: 'relative' }}>
+    <section style={{ background: 'transparent', padding: 'clamp(30px, 5vh, 60px) 0', overflow: 'hidden', position: 'relative' }}>
       
       {/* Header */}
       <div className="container-custom text-center mb-20">
@@ -33,7 +33,7 @@ const TestimonialsSection = () => {
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '10px' }}>
+          <p style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '10px' }}>
             Trusted Partners
           </p>
           <div style={{ width: '32px', height: '2px', background: '#0054B1', margin: '0 auto 20px' }} />

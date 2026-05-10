@@ -60,7 +60,7 @@ const DIFFERENTIATORS = [
 const WhyDifferent = ({ variant = 'landing' }) => {
   if (variant === 'landing') {
     return (
-      <section style={{ background: 'transparent', padding: 'clamp(60px, 10vh, 100px) 0', position: 'relative', overflow: 'hidden' }}>
+      <section style={{ background: 'transparent', padding: 'clamp(30px, 5vh, 60px) 0', position: 'relative', overflow: 'hidden' }}>
         <div className="container-custom">
           {/* Header */}
           <motion.div
@@ -70,7 +70,7 @@ const WhyDifferent = ({ variant = 'landing' }) => {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             style={{ marginBottom: '64px' }}
           >
-            <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '12px' }}>
+            <p style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '12px' }}>
               Why Incorvia
             </p>
             <h2 style={{ fontSize: 'clamp(2rem, 4vw, 3.5rem)', fontWeight: 900, color: '#0A1628', lineHeight: 1.1, marginBottom: '0' }}>
@@ -79,11 +79,12 @@ const WhyDifferent = ({ variant = 'landing' }) => {
             <div style={{ width: '100%', height: '1px', background: '#E5EAF0', marginTop: '28px' }} />
           </motion.div>
 
-          {/* 5 items — 2-col grid, last centred */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Items — Flex Wrap to center last row */}
+          <div className="flex flex-wrap justify-center gap-6">
             {DIFFERENTIATORS.map((item, i) => (
               <motion.div
                 key={item.num}
+                className="w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -116,7 +117,7 @@ const WhyDifferent = ({ variant = 'landing' }) => {
                     <span style={{ color: '#0054B1' }}>{item.icon}</span>
                     <h3 style={{ fontSize: '16px', fontWeight: 800, color: '#0054B1', lineHeight: 1.3 }}>{item.title}</h3>
                   </div>
-                  <p style={{ fontSize: '14px', color: '#6B7280', lineHeight: 1.75 }}>{item.desc}</p>
+                  <p style={{ fontSize: '16px', color: '#6B7280', lineHeight: 1.75 }}>{item.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -128,7 +129,7 @@ const WhyDifferent = ({ variant = 'landing' }) => {
 
   // === About Page Variant — immersive split layout ===
   return (
-    <section style={{ padding: 'clamp(60px, 10vh, 120px) 0', position: 'relative', zIndex: 10, overflow: 'hidden' }}>
+    <section style={{ padding: 'clamp(30px, 5vh, 60px) 0', position: 'relative', zIndex: 10, overflow: 'hidden' }}>
       {/* Dark BG accent */}
       <div style={{
         position: 'absolute', inset: 0,
@@ -154,7 +155,7 @@ const WhyDifferent = ({ variant = 'landing' }) => {
           transition={{ duration: 0.7 }}
           style={{ marginBottom: '72px', textAlign: 'center' }}
         >
-          <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '12px' }}>
+          <p style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '12px' }}>
             Why Incorvia
           </p>
           <div style={{ width: '40px', height: '2px', background: '#4B9FF3', margin: '0 auto 24px' }} />
@@ -194,7 +195,7 @@ const WhyDifferent = ({ variant = 'landing' }) => {
               }}
             >
               {/* Number */}
-              <span style={{ fontSize: '13px', fontWeight: 800, color: '#4B9FF3', letterSpacing: '0.05em', minWidth: '28px', paddingTop: '3px' }}>
+              <span style={{ fontSize: '15px', fontWeight: 800, color: '#4B9FF3', letterSpacing: '0.05em', minWidth: '28px', paddingTop: '3px' }}>
                 {item.num}
               </span>
               {/* Blue line */}

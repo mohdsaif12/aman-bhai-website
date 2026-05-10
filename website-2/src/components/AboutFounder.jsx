@@ -1,15 +1,15 @@
 import { motion } from 'framer-motion';
 
 const HIGHLIGHTS = [
-  { num: '5+', label: 'Years in\nBusiness Advisory' },
+  { num: '7+', label: 'Years in\nBusiness Advisory' },
   { num: '5', label: 'Years in Civil\nEngineering' },
-  { num: '6+', label: 'Industry\nSectors Served' },
+  { num: '30+', label: 'Specialities\nServed' },
 ];
 
 const AboutFounder = () => {
   return (
     <section style={{
-      padding: 'clamp(60px, 10vh, 120px) 0',
+      padding: 'clamp(30px, 5vh, 60px) 0',
       background: 'transparent',
       position: 'relative',
       zIndex: 10
@@ -24,7 +24,7 @@ const AboutFounder = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '10px' }}>
+            <p style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '10px' }}>
               Leadership
             </p>
             <h2 style={{ fontSize: 'clamp(1.8rem, 3.5vw, 3.2rem)', fontWeight: 900, lineHeight: 1.15, color: '#0A1628', marginBottom: '24px' }}>
@@ -32,16 +32,16 @@ const AboutFounder = () => {
             </h2>
             <div style={{ width: '48px', height: '2px', background: '#0054B1', marginBottom: '32px' }} />
 
-            <p style={{ fontSize: '16px', color: '#6B7280', lineHeight: 1.8, marginBottom: '20px' }}>
+            <p style={{ fontSize: '16px', color: '#6B7280', lineHeight: 1.8, marginBottom: '20px', textAlign: 'justify' }}>
               Aman Khan is the <strong style={{ color: '#0A1628' }}>Founder & Principal Advisor</strong> at Incorvia Corporate Advisory, a boutique firm established to guide entrepreneurs and businesses through the complexities of setting up and scaling in the UAE.
             </p>
-            <p style={{ fontSize: '16px', color: '#6B7280', lineHeight: 1.8, marginBottom: '20px' }}>
+            <p style={{ fontSize: '16px', color: '#6B7280', lineHeight: 1.8, marginBottom: '20px', textAlign: 'justify' }}>
               With a strong track record in business advisory, Aman brings a deep understanding of the UAE's regulatory and commercial landscape. He has worked closely with clients across diverse sectors — including <strong style={{ color: '#0A1628' }}>real estate, healthcare, F&B, technology, and travel</strong> — delivering tailored solutions that go beyond standard business setup services.
             </p>
-            <p style={{ fontSize: '16px', color: '#6B7280', lineHeight: 1.8, marginBottom: '20px' }}>
+            <p style={{ fontSize: '16px', color: '#6B7280', lineHeight: 1.8, marginBottom: '20px', textAlign: 'justify' }}>
               Before transitioning into consulting, Aman spent five years in civil engineering, contributing to high-rise development projects. This foundation instilled in him a disciplined, detail-oriented, and structured approach — qualities that now define his advisory style.
             </p>
-            <p style={{ fontSize: '16px', color: '#6B7280', lineHeight: 1.8, marginBottom: '36px' }}>
+            <p style={{ fontSize: '16px', color: '#6B7280', lineHeight: 1.8, marginBottom: '36px', textAlign: 'justify' }}>
               At the core of Aman's work is a commitment to <strong style={{ color: '#0A1628' }}>clarity, precision, and long-term value</strong>. He specialises in navigating complex licensing requirements, structuring businesses efficiently, and ensuring every client engagement is seamless, compliant, and strategically aligned.
             </p>
 
@@ -53,7 +53,7 @@ const AboutFounder = () => {
                   borderLeft: '3px solid #0054B1', minWidth: '110px'
                 }}>
                   <p style={{ fontSize: '26px', fontWeight: 900, color: '#0054B1', lineHeight: 1 }}>{h.num}</p>
-                  <p style={{ fontSize: '12px', color: '#6B7280', fontWeight: 600, lineHeight: 1.4, marginTop: '4px', whiteSpace: 'pre-line' }}>{h.label}</p>
+                  <p style={{ fontSize: '16px', color: '#6B7280', fontWeight: 600, lineHeight: 1.4, marginTop: '4px', whiteSpace: 'pre-line' }}>{h.label}</p>
                 </div>
               ))}
             </div>
@@ -69,7 +69,7 @@ const AboutFounder = () => {
               </div>
               <div>
                 <h4 style={{ fontSize: '18px', fontWeight: 800, color: '#0A1628', marginBottom: '2px' }}>Aman Khan</h4>
-                <p style={{ fontSize: '14px', color: '#6B7280' }}>Founder & Principal Advisor, Incorvia Corporate Advisory</p>
+                <p style={{ fontSize: '16px', color: '#6B7280' }}>Founder & Principal Advisor, Incorvia Corporate Advisory</p>
               </div>
             </div>
           </motion.div>
@@ -152,8 +152,8 @@ const AboutFounder = () => {
                 boxShadow: '0 16px 40px rgba(0,84,177,0.12)',
               }}
             >
-              <p style={{ fontSize: '28px', fontWeight: 900, color: '#0054B1', lineHeight: 1 }}>10+</p>
-              <p style={{ fontSize: '12px', fontWeight: 600, color: '#6B7280', marginTop: '4px' }}>Years Combined<br />Experience</p>
+              <p style={{ fontSize: '28px', fontWeight: 900, color: '#0054B1', lineHeight: 1 }}>12+</p>
+              <p style={{ fontSize: '16px', fontWeight: 600, color: '#6B7280', marginTop: '4px' }}>Years Combined<br />Experience</p>
             </motion.div>
 
             {/* Sectors badge */}
@@ -173,8 +173,8 @@ const AboutFounder = () => {
                 boxShadow: '0 12px 30px rgba(0,84,177,0.25)',
               }}
             >
-              <p style={{ fontSize: '22px', fontWeight: 900, lineHeight: 1 }}>6+</p>
-              <p style={{ fontSize: '11px', fontWeight: 600, marginTop: '2px' }}>Industry<br />Sectors</p>
+              <p style={{ fontSize: '22px', fontWeight: 900, lineHeight: 1 }}>30+</p>
+              <p style={{ fontSize: '15px', fontWeight: 600, marginTop: '2px' }}>Specialities</p>
             </motion.div>
           </motion.div>
 

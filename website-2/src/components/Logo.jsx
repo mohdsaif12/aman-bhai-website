@@ -1,12 +1,12 @@
 import logoMain from '../assets/logo_main.png';
 
-const Logo = () => {
+const Logo = ({ height = '100px' }) => {
   return (
     <div className="flex items-center">
       <img 
         src={logoMain} 
-        alt="Incorvia Corporate Advisory" 
-        style={{ height: '100px', width: 'auto', objectFit: 'contain' }} 
+        alt="Incorvia" 
+        style={{ height, width: 'auto', objectFit: 'contain' }} 
       />
     </div>
   );

@@ -60,7 +60,7 @@ const ResourcesPage = () => {
           transition={{ duration: 0.8, ease: 'easeOut' }}
           className="text-center mb-6"
         >
-          <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '10px' }}>
+          <p style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '10px' }}>
             Knowledge Hub
           </p>
           <div style={{ width: '32px', height: '2px', background: '#0054B1', margin: '0 auto 20px' }} />
@@ -102,7 +102,7 @@ const ResourcesPage = () => {
                 }}
               >
                 <span style={{
-                  display: 'inline-block', fontSize: '11px', fontWeight: 700,
+                  display: 'inline-block', fontSize: '15px', fontWeight: 700,
                   letterSpacing: '0.12em', textTransform: 'uppercase',
                   color: '#0054B1', background: '#EEF4FD',
                   padding: '4px 12px', borderRadius: '100px', marginBottom: '16px', alignSelf: 'flex-start',
@@ -112,12 +112,12 @@ const ResourcesPage = () => {
                 <h3 style={{ fontSize: '17px', fontWeight: 800, color: '#0A1628', lineHeight: 1.4, marginBottom: '12px', flex: 1 }}>
                   {article.title}
                 </h3>
-                <p style={{ fontSize: '14px', color: '#6B7280', lineHeight: 1.7, marginBottom: '20px' }}>
+                <p style={{ fontSize: '16px', color: '#6B7280', lineHeight: 1.7, marginBottom: '20px' }}>
                   {article.desc}
                 </p>
                 <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                  <span style={{ fontSize: '12px', color: '#9CA3AF' }}>{article.readTime}</span>
-                  <span style={{ fontSize: '13px', fontWeight: 600, color: '#0054B1' }}>Read →</span>
+                  <span style={{ fontSize: '16px', color: '#9CA3AF' }}>{article.readTime}</span>
+                  <span style={{ fontSize: '15px', fontWeight: 600, color: '#0054B1' }}>Read →</span>
                 </div>
               </motion.div>
             ))}

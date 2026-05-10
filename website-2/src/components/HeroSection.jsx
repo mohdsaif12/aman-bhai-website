@@ -3,11 +3,6 @@ import { ArrowRight, Building2, Award, Landmark } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import NetworkVisual from './NetworkVisual';
 
-const STATS = [
-  { icon: Building2, number: '500+', label: 'Businesses Setup' },
-  { icon: Award, number: '10+', label: 'Years of Excellence' },
-  { icon: Landmark, number: 'UAE', label: 'Government Partner' },
-];
 
 // Premium Cinematic Text Reveal
 const WordReveal = ({ words, color, baseDelay = 0 }) =>
@@ -48,17 +43,17 @@ const HeroSection = ({ onBookClick }) => {
   const navigate = useNavigate();
 
   return (
-    <section className="w-full bg-white overflow-hidden pt-[20px]">
+    <section className="w-full bg-white overflow-hidden">
       <div
         className="container-custom grid grid-cols-1 lg:grid-cols-2 items-center"
         style={{
-          minHeight: 'calc(100vh - 120px)',
+          minHeight: 'calc(100vh - 84px)',
           gap: '40px',
         }}
       >
 
         {/* ── LEFT: Text Content ── */}
-        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: 'clamp(20px, 8vh, 60px)', paddingBottom: 'clamp(40px, 10vh, 100px)' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', paddingTop: '40px', paddingBottom: '60px' }}>
 
           {/* Eyebrow */}
           <motion.p
@@ -66,7 +61,7 @@ const HeroSection = ({ onBookClick }) => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             style={{
-              fontSize: '12px',
+              fontSize: '16px',
               fontWeight: 600,
               letterSpacing: '0.18em',
               textTransform: 'uppercase',
@@ -105,7 +100,7 @@ const HeroSection = ({ onBookClick }) => {
               maxWidth: '440px',
             }}
           >
-            Incorvia is a strategic advisory firm that helps founders and investors
+            Incorvia Corporate Advisory is a strategic advisory firm that helps founders and investors
             design the right UAE business structure — before a single document is filed.
           </motion.p>
 
@@ -121,8 +116,11 @@ const HeroSection = ({ onBookClick }) => {
               maxWidth: '420px',
             }}
           >
-            <p style={{ fontSize: '13px', color: '#6B7280', lineHeight: 1.75, fontStyle: 'italic' }}>
+            <p style={{ fontSize: '15px', color: '#6B7280', lineHeight: 1.75, fontStyle: 'italic', marginBottom: '8px' }}>
               "We advise first. We structure second. We execute third. That sequence is not incidental — it is the entire point."
+            </p>
+            <p style={{ fontSize: '14px', fontWeight: 700, color: '#0A1628' }}>
+              — Aman, Founder
             </p>
           </motion.div>
 
@@ -131,7 +129,8 @@ const HeroSection = ({ onBookClick }) => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.9 }}
-            className="flex flex-col sm:flex-row items-center gap-6 mb-20"
+            className="flex flex-col sm:flex-row items-start sm:items-center gap-6"
+            style={{ marginBottom: '48px' }}
           >
             <motion.button
               whileHover={{ scale: 1.03, boxShadow: '0 6px 24px rgba(0,84,177,0.3)' }}
@@ -179,56 +178,29 @@ const HeroSection = ({ onBookClick }) => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 1.0 }}
-            style={{ display: 'flex', alignItems: 'center', gap: '6px', flexWrap: 'wrap', marginBottom: '28px' }}
+            style={{ 
+              display: 'flex', 
+              alignItems: 'center', 
+              gap: '8px', 
+              flexWrap: 'wrap', 
+              marginBottom: '28px',
+            }}
           >
             {STEPS.map((step, i) => (
-              <span key={step} style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-                <span style={{ fontSize: '12px', color: '#6B7280', fontWeight: 500 }}>{step}</span>
-                {i < STEPS.length - 1 && <span style={{ color: '#4B9FF3', fontSize: '12px' }}>→</span>}
+              <span key={step} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ fontSize: '15px', color: '#6B7280', fontWeight: 500 }}>{step}</span>
+                {i < STEPS.length - 1 && <span style={{ color: '#4B9FF3', fontSize: '15px' }}>→</span>}
               </span>
             ))}
           </motion.div>
 
-          {/* Trust Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 1.1 }}
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '64px',
-              paddingTop: '64px',
-              borderTop: '1px solid #E8ECF0',
-              flexWrap: 'wrap',
-            }}
-          >
-            {STATS.map(({ icon: Icon, number, label }) => (
-              <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-                <div style={{
-                  width: '64px', height: '64px', borderRadius: '50%',
-                  background: 'rgba(0,84,177,0.08)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
-                }}>
-                  <Icon size={28} color="#0054B1" strokeWidth={1.5} />
-                </div>
-                <div>
-                  <div style={{ fontSize: '28px', fontWeight: 900, color: '#000', lineHeight: 1 }}>{number}</div>
-                  <div style={{ fontSize: '15px', color: '#6B7280', marginTop: '6px', fontWeight: 500 }}>{label}</div>
-                </div>
-              </div>
-            ))}
-          </motion.div>
         </div>
 
-        {/* ── RIGHT: Network Visual — constrained so it doesn't overflow ── */}
         <div style={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          overflow: 'hidden',
-          height: '100%',
-          minHeight: '500px',
+          paddingTop: '0px',
         }}>
           <div style={{ width: '100%', maxWidth: '600px', aspectRatio: '1 / 1' }}>
             <NetworkVisual />

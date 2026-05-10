@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import step1Img from '../assets/step1_discovery.png';
 import step2Img from '../assets/step2_analysis.png';
 import step3Img from '../assets/consultation.png';
@@ -49,10 +50,13 @@ const HowItWorks = ({ onBookClick }) => {
     return () => clearInterval(interval);
   }, [isPaused]);
 
+  const nextStep = () => setActiveStep((prev) => (prev + 1) % STEPS.length);
+  const prevStep = () => setActiveStep((prev) => (prev - 1 + STEPS.length) % STEPS.length);
+
   return (
     <section style={{
       background: 'transparent',
-      padding: 'clamp(60px, 10vh, 120px) 0',
+      padding: 'clamp(30px, 5vh, 60px) 0',
       display: 'flex',
       justifyContent: 'center',
       overflow: 'hidden',
@@ -75,7 +79,7 @@ const HowItWorks = ({ onBookClick }) => {
           transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           style={{ textAlign: 'center', marginBottom: '96px' }}
         >
-          <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '10px' }}>
+          <p style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '10px' }}>
             How It Works
           </p>
           <div style={{ width: '32px', height: '2px', background: '#0054B1', margin: '0 auto 20px' }} />
@@ -90,13 +94,28 @@ const HowItWorks = ({ onBookClick }) => {
         {/* Slider Container */}
         <div className="flex justify-center w-full">
           <div 
-            className="relative w-full max-w-4xl"
+            className="relative w-full max-w-5xl px-12 md:px-16"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
+            {/* Navigation Arrows */}
+            <button 
+              onClick={prevStep}
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-[#E5EAF0] text-[#0054B1] flex items-center justify-center hover:bg-gray-50 hover:scale-105 transition"
+              aria-label="Previous step"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            <button 
+              onClick={nextStep}
+              className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-white shadow-lg border border-[#E5EAF0] text-[#0054B1] flex items-center justify-center hover:bg-gray-50 hover:scale-105 transition"
+              aria-label="Next step"
+            >
+              <ChevronRight size={24} />
+            </button>
+
           {/* Card Frame */}
-          <div className="relative bg-white rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,84,177,0.08)] border border-[#E5EAF0] aspect-auto md:aspect-[2/1] min-h-[440px]">
-            
+          <div className="relative bg-white rounded-3xl overflow-hidden shadow-[0_20px_60px_rgba(0,84,177,0.08)] border border-[#E5EAF0]">
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeStep}
@@ -104,16 +123,17 @@ const HowItWorks = ({ onBookClick }) => {
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -30 }}
                 transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="w-full flex flex-col md:flex-row absolute inset-0"
+                className="w-full flex flex-col md:flex-row"
+                style={{ minHeight: '420px' }}
               >
-                {/* Image Section */}
-                <div className="w-full md:w-1/2 h-64 md:h-full relative shrink-0">
+                {/* Image Section — fixed width, fills height */}
+                <div className="w-full md:w-[48%] shrink-0 relative" style={{ minHeight: '420px' }}>
                   <img
                     src={STEPS[activeStep].img}
                     alt={STEPS[activeStep].title}
-                    className="w-full h-full object-cover"
+                    className="absolute inset-0 w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t md:bg-gradient-to-r from-black/60 md:from-black/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-black/10" />
                   
                   {/* Step Badge Over Image */}
                   <div className="absolute bottom-6 left-6 md:bottom-8 md:left-8 flex items-center gap-4">
@@ -127,12 +147,12 @@ const HowItWorks = ({ onBookClick }) => {
                   </div>
                 </div>
 
-                {/* Content Section */}
-                <div className="w-full md:w-1/2 h-full flex flex-col justify-center items-start p-8 md:p-12 lg:py-16 lg:px-20 bg-white overflow-y-auto">
-                  <h3 className="text-2xl md:text-[26px] font-black text-[#0A1628] mb-5 leading-tight text-left">
+                {/* Content Section — takes remaining space */}
+                <div className="flex-1 flex flex-col justify-start items-start bg-white" style={{ padding: '48px 40px 40px 52px' }}>
+                  <h3 className="text-2xl md:text-[26px] lg:text-[30px] font-black text-[#0A1628] mb-5 leading-tight text-left">
                     {STEPS[activeStep].title}
                   </h3>
-                  <p className="text-[15px] text-[#6B7280] leading-relaxed mb-4 text-left max-w-[400px]">
+                  <p className="text-[15px] text-[#6B7280] leading-relaxed text-left">
                     {STEPS[activeStep].desc}
                   </p>
                 </div>

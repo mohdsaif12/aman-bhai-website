@@ -41,7 +41,7 @@ const STATS = [
 ];
 
 const WhyIncorvia = () => (
-  <section style={{ background: 'transparent', padding: 'clamp(60px, 10vh, 120px) 0', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
+  <section style={{ background: 'transparent', padding: 'clamp(30px, 5vh, 60px) 0', display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative', overflow: 'hidden' }}>
     <div className="container-custom grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
 
       {/* Left Content */}
@@ -52,12 +52,12 @@ const WhyIncorvia = () => (
         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
         className="flex flex-col items-center text-center lg:items-start lg:text-left"
       >
-        <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '16px' }}>Why Incorvia</p>
+        <p style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '16px' }}>Why Incorvia Corporate Advisory</p>
         <h2 style={{ fontSize: 'clamp(2rem, 3.2vw, 3.2rem)', fontWeight: 900, lineHeight: 1.1, color: '#0A1628', marginBottom: '20px' }}>
           1. About Us
         </h2>
         <p style={{ fontSize: '15px', color: '#6B7280', lineHeight: 1.75, maxWidth: '480px', marginBottom: '40px' }}>
-          Incorvia was built for founders who want clarity, not just compliance. We simplify complexity — combining local knowledge with global standards to deliver structures that hold up under scrutiny.
+          Incorvia Corporate Advisory was built for founders who want clarity, not just compliance. We simplify complexity — combining local knowledge with global standards to deliver structures that hold up under scrutiny.
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
           {FEATURES.map(({ title, desc, icon }, index) => (
@@ -74,7 +74,7 @@ const WhyIncorvia = () => (
               </div>
               <div>
                 <p style={{ fontSize: '15px', fontWeight: 700, color: '#0A1628', marginBottom: '4px' }}>{title}</p>
-                <p style={{ fontSize: '13px', color: '#6B7280', lineHeight: 1.65 }}>{desc}</p>
+                <p style={{ fontSize: '15px', color: '#6B7280', lineHeight: 1.65 }}>{desc}</p>
               </div>
             </motion.div>
           ))}
@@ -107,7 +107,7 @@ const WhyIncorvia = () => (
                   >
                     {num}
                   </motion.div>
-                  <div style={{ fontSize: '13px', color: '#6B7280', fontWeight: 500 }}>{label}</div>
+                  <div style={{ fontSize: '15px', color: '#6B7280', fontWeight: 500 }}>{label}</div>
                 </div>
               ))}
             </div>

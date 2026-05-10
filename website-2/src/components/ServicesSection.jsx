@@ -43,12 +43,18 @@ const SERVICES = [
     icon: <img src="/v-icon.png" alt="Incorvia" style={{ width: '28px', height: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} />,
     includes: ['Multi-entity structuring', 'Asset protection planning', 'Cross-border optimisation'],
   },
+  {
+    title: 'AI Support & Business Automation',
+    desc: 'In partnership with our partner company, we help businesses automate support, qualify leads, and streamline operations with AI powered systems that improve efficiency and customer experience.',
+    icon: <img src="/v-icon.png" alt="Incorvia" style={{ width: '28px', height: 'auto', objectFit: 'contain', mixBlendMode: 'multiply' }} />,
+    includes: ['AI virtual assistants', 'Customer support automation', 'Lead qualification', 'Workflow automation'],
+  },
 ];
 
 const ServicesSection = ({ onBookClick }) => (
   <section
     className="w-full bg-transparent overflow-hidden relative flex justify-center"
-    style={{ padding: 'clamp(60px, 10vh, 100px) 0' }}
+    style={{ padding: 'clamp(30px, 5vh, 60px) 0' }}
   >
     {/* Deco lines top-right */}
     <svg className="absolute top-0 right-0 pointer-events-none opacity-50" width="280" height="280" viewBox="0 0 280 280" fill="none">
@@ -65,7 +71,7 @@ const ServicesSection = ({ onBookClick }) => (
         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         className="flex flex-col items-center mb-16"
       >
-        <p style={{ fontSize: '11px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '16px' }}>
+        <p style={{ fontSize: '15px', fontWeight: 700, letterSpacing: '0.18em', textTransform: 'uppercase', color: '#4B9FF3', marginBottom: '16px' }}>
           Advisory Scope
         </p>
         <div style={{ width: '48px', height: '3px', background: '#0054B1', marginBottom: '32px', borderRadius: '2px' }} />
@@ -78,8 +84,8 @@ const ServicesSection = ({ onBookClick }) => (
         </p>
       </motion.div>
 
-      {/* Cards — 3 col grid (last card centred via wrapper) */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10 w-full">
+      {/* Cards — 4 col grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 lg:gap-8 w-full">
         {SERVICES.map(({ title, desc, icon, includes }, index) => (
           <motion.div
             key={title}
@@ -91,11 +97,12 @@ const ServicesSection = ({ onBookClick }) => (
               background: '#fff',
               border: '1px solid #E5EAF0',
               borderRadius: '20px',
-              padding: '36px 28px 32px',
+              padding: '24px 20px',
               display: 'flex',
               flexDirection: 'column',
               cursor: 'pointer',
               transition: 'all 0.3s ease',
+              height: '100%',
             }}
             onMouseEnter={e => {
               e.currentTarget.style.borderColor = '#4B9FF3';
@@ -108,26 +115,26 @@ const ServicesSection = ({ onBookClick }) => (
               e.currentTarget.style.transform = 'translateY(0)';
             }}
           >
-            <div style={{ width: '60px', height: '60px', borderRadius: '50%', background: '#EEF4FD', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '20px', alignSelf: 'center' }}>
+            <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#EEF4FD', display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: '16px', alignSelf: 'center' }}>
               {icon}
             </div>
-            <div style={{ width: '28px', height: '2.5px', background: '#0054B1', borderRadius: '2px', marginBottom: '14px', alignSelf: 'center' }} />
-            <p style={{ fontSize: '16px', fontWeight: 800, color: '#0A1628', lineHeight: 1.3, marginBottom: '10px', textAlign: 'center' }}>{title}</p>
-            <p style={{ fontSize: '14px', color: '#6B7280', lineHeight: 1.75, flex: 1, marginBottom: '18px', textAlign: 'center' }}>{desc}</p>
+            <div style={{ width: '28px', height: '2.5px', background: '#0054B1', borderRadius: '2px', marginBottom: '12px', alignSelf: 'center' }} />
+            <p style={{ fontSize: '15px', fontWeight: 800, color: '#0A1628', lineHeight: 1.3, marginBottom: '8px', textAlign: 'center' }}>{title}</p>
+            <p style={{ fontSize: '14px', color: '#6B7280', lineHeight: 1.6, flex: 1, marginBottom: '16px', textAlign: 'center' }}>{desc}</p>
 
             {/* Includes list */}
-            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 20px', display: 'flex', flexDirection: 'column', gap: '7px', alignItems: 'center' }}>
+            <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 16px', display: 'flex', flexDirection: 'column', gap: '6px', alignItems: 'center' }}>
               {includes.map(item => (
-                <li key={item} style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: '#6B7280', textAlign: 'center' }}>
-                  <span style={{ color: '#0054B1', fontWeight: 700, flexShrink: 0 }}>→</span>
+                <li key={item} style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', fontSize: '13px', color: '#6B7280', textAlign: 'center' }}>
+                  <span style={{ color: '#0054B1', fontWeight: 700, flexShrink: 0, marginTop: '1px' }}>→</span>
                   {item}
                 </li>
               ))}
             </ul>
 
-            <a href="#" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', fontSize: '14px', fontWeight: 600, color: '#0054B1', textDecoration: 'none' }}>
+            <a href="#" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', fontSize: '14px', fontWeight: 600, color: '#0054B1', textDecoration: 'none' }}>
               Learn More
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="2" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0054B1" strokeWidth="2" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
           </motion.div>
         ))}

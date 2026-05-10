@@ -17,16 +17,26 @@ import BusinessWithPurpose from './components/BusinessWithPurpose';
 function App() {
   const [popupOpen, setPopupOpen] = useState(false);
 
-  // Auto-open popup after 2.5s, once per session
+  // Auto-open popup after scrolling past services section, once per session
   useEffect(() => {
-    const seen = sessionStorage.getItem('incorvia_popup_shown');
-    if (!seen) {
-      const timer = setTimeout(() => {
-        setPopupOpen(true);
-        sessionStorage.setItem('incorvia_popup_shown', '1');
-      }, 500);
-      return () => clearTimeout(timer);
-    }
+    const seen = sessionStorage.getItem('Incorvia_popup_shown');
+    if (seen) return;
+
+    const handleScroll = () => {
+      const servicesSection = document.getElementById('services');
+      if (servicesSection) {
+        const rect = servicesSection.getBoundingClientRect();
+        // Trigger when the bottom of services section is scrolled into upper half of viewport
+        if (rect.bottom < window.innerHeight / 2) {
+          setPopupOpen(true);
+          sessionStorage.setItem('Incorvia_popup_shown', '1');
+          window.removeEventListener('scroll', handleScroll);
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (

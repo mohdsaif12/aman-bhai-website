@@ -25,7 +25,7 @@ const Footer = () => {
     },
     { 
       label: 'Instagram', 
-      href: 'https://www.instagram.com/incorvia.ae?igsh=N2R5aWw5ZXplYXZz',
+      href: 'https://www.instagram.com/Incorvia.ae?igsh=N2R5aWw5ZXplYXZz',
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -36,7 +36,7 @@ const Footer = () => {
     },
     { 
       label: 'LinkedIn', 
-      href: 'https://www.linkedin.com/company/incorvia-corporate-advisory/',
+      href: 'https://www.linkedin.com/company/Incorvia-corporate-advisory/',
       icon: (
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
@@ -136,7 +136,7 @@ const Footer = () => {
               </li>
               <li style={{ display: 'flex', gap: '12px', fontSize: '15px', color: 'rgba(255,255,255,0.6)' }}>
                 <Mail size={18} style={{ color: '#4B9FF3', flexShrink: 0 }} />
-                <a href="mailto:advisory@incorvia.ae" style={{ color: 'inherit', textDecoration: 'none' }}>advisory@incorvia.ae</a>
+                <a href="mailto:advisory@Incorvia.ae" style={{ color: 'inherit', textDecoration: 'none' }}>advisory@Incorvia.ae</a>
               </li>
               <li style={{ display: 'flex', gap: '12px', fontSize: '15px', color: 'rgba(255,255,255,0.6)' }}>
                 <Phone size={18} style={{ color: '#4B9FF3', flexShrink: 0 }} />
@@ -148,12 +148,12 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '32px', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', gap: '20px' }}>
-          <p style={{ fontSize: '14px', color: 'rgba(255,255,255,0.4)' }}>
+          <p style={{ fontSize: '16px', color: 'rgba(255,255,255,0.4)' }}>
             © {currentYear} Incorvia Corporate Advisory. All rights reserved.
           </p>
           <div style={{ display: 'flex', gap: '24px' }}>
-            <a href="#" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Privacy Policy</a>
-            <a href="#" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Terms of Service</a>
+            <a href="#" style={{ fontSize: '16px', color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Privacy Policy</a>
+            <a href="#" style={{ fontSize: '16px', color: 'rgba(255,255,255,0.4)', textDecoration: 'none' }}>Terms of Service</a>
           </div>
         </div>
       </div>

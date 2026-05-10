@@ -49,7 +49,7 @@ const Navbar = ({ onBookClick }) => {
       setTimeout(() => {
         const el = document.getElementById(location.hash.substring(1));
         if (el) {
-          const top = el.getBoundingClientRect().top + window.scrollY - 90;
+          const top = el.getBoundingClientRect().top + window.scrollY - 130;
           window.scrollTo({ top, behavior: 'auto' });
         }
       }, 100);
@@ -72,7 +72,7 @@ const Navbar = ({ onBookClick }) => {
       const el = document.getElementById(hash);
       if (el) {
         // Offset by 90px (header height)
-        const top = el.getBoundingClientRect().top + window.scrollY - 90;
+        const top = el.getBoundingClientRect().top + window.scrollY - 130;
         window.scrollTo({ top, behavior: 'auto' }); // 'auto' = instant jump
       }
     } else {
@@ -82,17 +82,19 @@ const Navbar = ({ onBookClick }) => {
   };
 
   return (
-    <header className="w-full bg-white border-b border-gray-200 sticky top-0 z-50">
+    <header className="w-full bg-white sticky top-0 z-50">
       <div
         className="container-custom flex items-center justify-between"
         style={{
-          height: '120px',
+          height: '84px',
         }}
       >
         {/* Col 1 — Logo */}
-        <div>
-          <a href="/" onClick={e => scrollTo(e, '/', 'home')} style={{ textDecoration: 'none' }}>
-            <Logo />
+        <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
+          <a href="/" onClick={e => scrollTo(e, '/', 'home')} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', height: '100%' }}>
+            <div style={{ transform: 'scale(1.2)', transformOrigin: 'left center' }}>
+              <Logo height="64px" />
+            </div>
           </a>
         </div>
 
