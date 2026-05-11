@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, CheckCircle, AlertCircle, Loader } from 'lucide-react';
 
 // ─── PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE ───────────────────────
-const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxONF4ZmIe5sE2b8ZMWLs-5ClBPnokAQ9C97j2bIWRGZ5bXuwXzP4RxK8maGwDkHxc/exec';
+const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyEZLpiVNSid83n9Nt95fehDW77gZiFl2D9I8S9iY32x93nKG28ImhqS1KYencSw5Dm/exec';
 // ──────────────────────────────────────────────────────────────────────────
 
 const PROCESS_OPTIONS = [
@@ -39,18 +39,19 @@ const ConsultationPopup = ({ isOpen, onClose }) => {
     try {
       // POST to Google Apps Script
       const body = new URLSearchParams({
+        timestamp: new Date().toLocaleString(),
         name: form.name,
         email: form.email,
         phone: form.phone,
+        company: form.company || 'N/A',
         service: form.service,
         process: form.process,
         message: form.message,
-        timestamp: new Date().toISOString(),
       });
 
       await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
-        mode: 'no-cors', // Apps Script doesn't send CORS headers on redirect
+        mode: 'no-cors',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: body.toString(),
       });

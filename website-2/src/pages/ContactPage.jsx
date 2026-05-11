@@ -39,16 +39,25 @@ const ContactPage = () => {
     setStatus('loading');
     
     // Using the same Apps Script logic as the popup
-    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxONF4ZmIe5sE2b8ZMWLs-5ClBPnokAQ9C97j2bIWRGZ5bXuwXzP4RxK8maGwDkHxc/exec';
+    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyEZLpiVNSid83n9Nt95fehDW77gZiFl2D9I8S9iY32x93nKG28ImhqS1KYencSw5Dm/exec';
     
     try {
-      const formData = new FormData();
-      Object.entries(form).forEach(([key, val]) => formData.append(key, val));
+      const body = new URLSearchParams({
+        timestamp: new Date().toLocaleString(),
+        name: form.name,
+        email: form.email,
+        phone: form.phone,
+        company: form.company,
+        service: form.service,
+        process: form.process,
+        message: form.message,
+      });
       
       await fetch(APPS_SCRIPT_URL, {
         method: 'POST',
-        body: formData,
-        mode: 'no-cors'
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString(),
       });
       
       setStatus('success');
