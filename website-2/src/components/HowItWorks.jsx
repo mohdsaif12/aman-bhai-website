@@ -162,7 +162,7 @@ const HowItWorks = ({ onBookClick }) => {
           </div>
 
           {/* Bottom Pagination Dots */}
-          <div className="flex justify-center gap-3 mt-12">
+          <div className="flex justify-center gap-3 mt-32">
             {STEPS.map((_, index) => (
               <button
                 key={index}

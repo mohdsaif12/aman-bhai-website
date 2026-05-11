@@ -55,7 +55,7 @@ const Footer = () => {
           {/* Col 1: Brand & Bio */}
           <div className="lg:col-span-1">
             <div style={{ marginBottom: '24px' }}>
-              <Logo />
+              <Logo variant="footer" />
             </div>
             <p style={{ fontSize: '15px', color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, marginBottom: '28px' }}>
               Strategic corporate advisory for founders and investors scaling in the UAE. We prioritize structure before paperwork to ensure long-term success.
@@ -111,7 +111,16 @@ const Footer = () => {
           <div>
             <h4 style={{ fontSize: '16px', fontWeight: 700, marginBottom: '24px', color: '#fff' }}>Services</h4>
             <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-              {['Business Advisory', 'Company Formation', 'Golden Visa & Residency', 'Tax & Compliance', 'Banking Support'].map((s) => (
+              {[
+                'Business Advisory Services',
+                'Business Incorporation',
+                'Banking Support & Compliance',
+                'Golden Visa & Residency',
+                'Tax Advisory & Accounting',
+                'Corporate & PRO Services',
+                'Holding Structures',
+                'AI Support & Business Automation',
+              ].map((s) => (
                 <li key={s}>
                   <Link 
                     to="/services"

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const HIGHLIGHTS = [
   { num: '7+', label: 'Years in\nBusiness Advisory' },
   { num: '5', label: 'Years in Civil\nEngineering' },
-  { num: '30+', label: 'Specialities\nServed' },
+  { num: '30+', label: 'Sectors\nServed' },
 ];
 
 const AboutFounder = () => {
@@ -92,36 +92,36 @@ const AboutFounder = () => {
               boxShadow: '0 24px 80px rgba(0, 84, 177, 0.15)'
             }}>
               {/* Full Bleed Image */}
-              <img 
-                src="/ownerpicture.jpeg" 
-                alt="Aman Khan" 
-                style={{ 
-                  position: 'absolute', 
-                  inset: 0, 
-                  width: '100%', 
-                  height: '100%', 
-                  objectFit: 'cover', 
-                  objectPosition: 'center 15%' 
-                }} 
+              <img
+                src="/ownerpicture.jpeg"
+                alt="Aman Khan"
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center 15%'
+                }}
               />
-              
+
               {/* Premium Gradient Overlay */}
-              <div style={{ 
-                position: 'absolute', 
-                inset: 0, 
-                background: 'linear-gradient(to top, rgba(10,22,40,0.95) 0%, rgba(10,22,40,0.6) 35%, transparent 65%)' 
+              <div style={{
+                position: 'absolute',
+                inset: 0,
+                background: 'linear-gradient(to top, rgba(10,22,40,0.95) 0%, rgba(10,22,40,0.6) 35%, transparent 65%)'
               }} />
 
               {/* Bottom aligned content */}
-              <div style={{ 
-                position: 'absolute', 
-                inset: 0, 
-                display: 'flex', 
-                flexDirection: 'column', 
-                alignItems: 'center', 
-                justifyContent: 'flex-end', 
-                padding: '40px', 
-                textAlign: 'center' 
+              <div style={{
+                position: 'absolute',
+                inset: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                justifyContent: 'flex-end',
+                padding: '40px',
+                textAlign: 'center'
               }}>
                 <h3 style={{ fontSize: '28px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>Aman Khan</h3>
                 <p style={{ fontSize: '15px', color: '#4B9FF3', fontWeight: 600, marginBottom: '24px' }}>Founder & Principal Advisor</p>
@@ -174,7 +174,7 @@ const AboutFounder = () => {
               }}
             >
               <p style={{ fontSize: '22px', fontWeight: 900, lineHeight: 1 }}>30+</p>
-              <p style={{ fontSize: '15px', fontWeight: 600, marginTop: '2px' }}>Specialities</p>
+              <p style={{ fontSize: '15px', fontWeight: 600, marginTop: '2px' }}>Sectors served through<br />incorporated companies</p>
             </motion.div>
           </motion.div>
 

@@ -15,8 +15,21 @@ const navLinks = [
 const Navbar = ({ onBookClick }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
+  const [isScrolled, setIsScrolled] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   useEffect(() => {
     const path = location.pathname;
@@ -82,18 +95,36 @@ const Navbar = ({ onBookClick }) => {
   };
 
   return (
-    <header className="w-full bg-white sticky top-0 z-50">
+    <header 
+      className="w-full bg-white sticky top-0 z-50"
+      style={{
+        transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border 0.4s ease',
+        transform: isScrolled ? 'translateY(-10px)' : 'translateY(0)',
+        boxShadow: isScrolled ? '0 10px 30px rgba(0,0,0,0.08)' : 'none',
+        borderBottom: isScrolled ? '1px solid #f0f0f0' : '1px solid transparent',
+        willChange: 'transform'
+      }}
+    >
       <div
         className="container-custom flex items-center justify-between"
         style={{
-          height: '84px',
+          height: '100px', // Keep height stable to avoid layout reflows
+          transition: 'height 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+          paddingTop: isScrolled ? '10px' : '0' // Counter-act the translateY slightly for centering
         }}
       >
         {/* Col 1 — Logo */}
         <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>
           <a href="/" onClick={e => scrollTo(e, '/', 'home')} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', height: '100%' }}>
-            <div style={{ transform: 'scale(1.2)', transformOrigin: 'left center' }}>
-              <Logo height="64px" />
+            <div 
+              style={{ 
+                transform: isScrolled ? 'scale(0.85)' : 'scale(1.2)', 
+                transformOrigin: 'left center',
+                transition: 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+                willChange: 'transform'
+              }}
+            >
+              <Logo height="130px" />
             </div>
           </a>
         </div>

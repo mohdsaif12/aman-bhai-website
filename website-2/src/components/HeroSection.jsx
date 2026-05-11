@@ -120,7 +120,7 @@ const HeroSection = ({ onBookClick }) => {
               "We advise first. We structure second. We execute third. That sequence is not incidental — it is the entire point."
             </p>
             <p style={{ fontSize: '14px', fontWeight: 700, color: '#0A1628' }}>
-              — Aman, Founder
+              — Aman Khan, Founder & Principal Advisor
             </p>
           </motion.div>
 
